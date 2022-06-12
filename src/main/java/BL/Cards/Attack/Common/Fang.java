@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 
+import javax.swing.text.html.HTML;
+
 public class Fang extends CustomCard {
     public static final String ID = "BLMod:Fang";
     public static final String NAME = "Fang";
@@ -34,7 +36,6 @@ public class Fang extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, BLCardEnum.BL, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = HEAL;
-        this.tags.add(BaseModCardTags.BASIC_STRIKE);
 
     }
 

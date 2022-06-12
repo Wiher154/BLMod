@@ -11,6 +11,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="desktop-1.0" level="project" />
+    <orderEntry type="library" name="BaseMod" level="project" />
+    <orderEntry type="library" name="ModTheSpire" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: bin:BaseMod:1.0">
         <CLASSES>
@@ -38,8 +41,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="desktop-1.0" level="project" />
-    <orderEntry type="library" name="BaseMod" level="project" />
-    <orderEntry type="library" name="ModTheSpire" level="project" />
   </component>
 </module>
