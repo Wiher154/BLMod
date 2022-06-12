@@ -4,16 +4,16 @@ import BL.Cards.Attack.Common.*;
 import BL.Cards.Attack.Rare.Feast;
 import BL.Cards.Attack.Uncommon.BloodVeil;
 import BL.Cards.Attack.Uncommon.Jaw;
+import BL.Cards.Attack.Uncommon.MidnightChoir;
 import BL.Cards.Power.Common.BrokenConcentration;
 import BL.Cards.Power.Common.Infusion;
+import BL.Cards.Power.Common.MadEye;
 import BL.Cards.Power.Rare.BloodMist;
+import BL.Cards.Power.Rare.MadnessForm;
 import BL.Cards.Power.Uncommon.BalefulJourney;
 import BL.Cards.Power.Uncommon.BloodWalk;
 import BL.Cards.Power.Uncommon.DrawnInBlood;
-import BL.Cards.Skill.Common.DarkTide;
-import BL.Cards.Skill.Common.Flurry;
-import BL.Cards.Skill.Common.Shade;
-import BL.Cards.Skill.Common.VeinFiltering;
+import BL.Cards.Skill.Common.*;
 import BL.Cards.Skill.Rare.BloodRitual;
 import BL.Cards.Skill.Rare.EvolveRitual;
 import BL.Cards.Skill.Uncommon.BloodSign;
@@ -69,6 +69,10 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new Infusion());
         BaseMod.addCard((AbstractCard)new Jaw());
         BaseMod.addCard((AbstractCard)new MadBite());
+        BaseMod.addCard((AbstractCard)new MadEye());
+        BaseMod.addCard((AbstractCard)new MadnessForm());
+        BaseMod.addCard((AbstractCard)new MidnightChoir());
+        BaseMod.addCard((AbstractCard)new Tap());
 
     }
 

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.*;
 public class MadEye extends CustomCard {
     public static final String ID = "BLMod:MadEye";
     public static final String NAME = "Mad Eye";
-    public static final String DESCRIPTION = "Bloodcost: !M! NL Gain !M! Strength and Dexterity";
+    public static final String DESCRIPTION = "Weak !M! NL Frail !M! When i'm discarded remove !M! buff(s) from random enemy";
     public static final String IMG_PATH = "img/temp.png";
 
     private static final int COST = 1;
@@ -24,7 +24,7 @@ public class MadEye extends CustomCard {
 
 
     public MadEye() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.POWER, BLCardEnum.BL, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.POWER, BLCardEnum.BL, AbstractCard.CardRarity.COMMON, CardTarget.ENEMY);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
 
     }

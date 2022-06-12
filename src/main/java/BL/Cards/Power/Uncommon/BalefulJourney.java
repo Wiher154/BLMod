@@ -45,7 +45,7 @@ public class BalefulJourney extends CustomCard {
             if (pow.amount >= this.magicNumber - 1)
                 for (int i = 0; i < j; ++i)
                     if (!((AbstractMonster) AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).isDying && ((AbstractMonster) AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).currentHealth > 0)
-                        ((AbstractMonster) AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).escape();
+                        ((AbstractMonster) AbstractDungeon.getCurrRoom().monsters.monsters.get(i)).die();
         }
         addToTop((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new BalefulJourneyPow((AbstractCreature)p, 1), 1));
         addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
