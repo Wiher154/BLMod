@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class BloodBarrier extends CustomCard {
     public static final String ID = "BLMod:BloodBarrier";
     public static final String NAME = "Blood Barrier";
-    public static final String DESCRIPTION = "Deal !D!. Block amount of damage + !M! times Blood spend";
+    public static final String DESCRIPTION = "Bloodcost: up to 2 NL Deal !D! NL Block amount of damage + !M! times Blood spend";
     public static final String IMG_PATH = "img/temp.png";
 
     private static final int COST = 1;
@@ -68,6 +68,8 @@ public class BloodBarrier extends CustomCard {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
             upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.rawDescription = "Bloodcost: up to 3 NL Deal !D! NL Block amount of damage + !M! times Blood spend";
+            this.initializeDescription();
         }
     }
 

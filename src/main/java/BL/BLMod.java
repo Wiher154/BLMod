@@ -12,6 +12,7 @@ import BL.Cards.Power.Common.Infusion;
 import BL.Cards.Power.Common.MadEye;
 import BL.Cards.Power.Rare.BloodMist;
 import BL.Cards.Power.Rare.MadnessForm;
+import BL.Cards.Power.Rare.SanguineForm;
 import BL.Cards.Power.Uncommon.BalefulJourney;
 import BL.Cards.Power.Uncommon.BloodWalk;
 import BL.Cards.Power.Uncommon.DrawnInBlood;
@@ -81,6 +82,7 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new RedShadow());
         BaseMod.addCard((AbstractCard)new RiversOfBlood());
         BaseMod.addCard((AbstractCard)new RuinousRevelation());
+        BaseMod.addCard((AbstractCard)new SanguineForm());
 
     }
 
