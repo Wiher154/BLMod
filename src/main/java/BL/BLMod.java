@@ -2,6 +2,7 @@ package BL;
 
 import BL.Cards.Attack.Common.*;
 import BL.Cards.Attack.Rare.Feast;
+import BL.Cards.Attack.Rare.RuinousRevelation;
 import BL.Cards.Attack.Uncommon.BloodVeil;
 import BL.Cards.Attack.Uncommon.Jaw;
 import BL.Cards.Attack.Uncommon.MidnightChoir;
@@ -73,6 +74,7 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new MadnessForm());
         BaseMod.addCard((AbstractCard)new MidnightChoir());
         BaseMod.addCard((AbstractCard)new Tap());
+        BaseMod.addCard((AbstractCard)new RuinousRevelation());
 
     }
 
