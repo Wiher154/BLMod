@@ -52,13 +52,15 @@ public class MadEye extends CustomCard {
     public void triggerOnManualDiscard() {
         int removedAmount = 0;
         for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-            for (AbstractPower pow : m.powers) {
-                if (pow.type == AbstractPower.PowerType.BUFF && pow.ID != "Invincible" && pow.ID != "Mode Shift" && pow.ID != "Split" && pow.ID != "Unawakened" && pow.ID != "Life Link" && pow.ID != "Fading" && pow.ID != "Stasis" && pow.ID != "Minion" && pow.ID != "Shifting" && pow.ID != "shadowverse:chushouHealPower" && !(pow instanceof com.megacrit.cardcrawl.powers.StrengthPower) && !(pow instanceof com.megacrit.cardcrawl.powers.DexterityPower)) {
-                    addToBot((AbstractGameAction) new RemoveSpecificPowerAction(pow.owner, (AbstractCreature) AbstractDungeon.player, pow.ID));
-                    removedAmount++;
-                    if (removedAmount >= this.magicNumber)
-                        break;
-                }
+            if(m.currentHealth>0 && !m.isDying && !m.isEscaping)
+                for (AbstractPower pow : m.powers) {
+                    if (pow.type == AbstractPower.PowerType.BUFF && pow.ID != "Invincible" && pow.ID != "Mode Shift" && pow.ID != "Split" && pow.ID != "Unawakened" && pow.ID != "Life Link" && pow.ID != "Fading" && pow.ID != "Stasis" && pow.ID != "Minion" && pow.ID != "Shifting" && pow.ID != "shadowverse:chushouHealPower" && !(pow instanceof com.megacrit.cardcrawl.powers.StrengthPower) && !(pow instanceof com.megacrit.cardcrawl.powers.DexterityPower))
+                    {
+                        addToBot((AbstractGameAction) new RemoveSpecificPowerAction(pow.owner, (AbstractCreature) AbstractDungeon.player, pow.ID));
+                        removedAmount++;
+                        if (removedAmount >= this.magicNumber)
+                            break;
+                    }
             }
             if (removedAmount >= this.magicNumber)
                 break;

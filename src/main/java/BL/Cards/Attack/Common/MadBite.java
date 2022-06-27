@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -22,6 +21,7 @@ public class MadBite extends CustomCard {
     public static final String IMG_PATH = "img/temp.png";
 
     private static final int COST = 0;
+    private static final int DISCARD_COST = 1;
     private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE_AMOUNT = 4;
     private static final int MAGIC_NUMBER = 1;
@@ -63,7 +63,7 @@ public class MadBite extends CustomCard {
             return true;
         if (!canUse)
             return false;
-         if(p.hand.size() > 1)
+         if(p.hand.size() > DISCARD_COST)
              return true;
         return false;
     }
