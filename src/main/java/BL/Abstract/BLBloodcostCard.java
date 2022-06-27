@@ -13,12 +13,22 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class BLBloodcostCard extends CustomCard {
     private int blood_cost = 0;
+    private boolean isCostAllBlood;
 
     public BLBloodcostCard(String id, String name, String img, int cost, int bloodcost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target){
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
         this.blood_cost = bloodcost;
+        this.isCostAllBlood = false;
         if(this.blood_cost < 0)
             this.blood_cost = 0;
+
+    }
+
+    public void SetBloodcostToAll() {
+        this.isCostAllBlood = true;
+    }
+    public void DontSpendAllBlood() {
+        this.isCostAllBlood = false;
     }
 
     public void upgradeBloodCost(int upgradeAmount) {
@@ -32,7 +42,9 @@ public abstract class BLBloodcostCard extends CustomCard {
         if(!this.isInAutoplay){
             AbstractPower pow = p.getPower("BLMod:Blood");
             if(pow != null)
-                if (pow.amount >= this.blood_cost)
+                if (isCostAllBlood)
+                    addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, -pow.amount), -pow.amount));
+             else if (pow.amount >= this.blood_cost)
                     addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, -this.blood_cost), -this.blood_cost));
 
         }
@@ -61,7 +73,7 @@ public abstract class BLBloodcostCard extends CustomCard {
         boolean glow = true;
         AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
         if(pow != null)
-            if (pow.amount < this.blood_cost)
+            if (pow.amount < this.blood_cost || isCostAllBlood)
                 glow = false;
         if (glow) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

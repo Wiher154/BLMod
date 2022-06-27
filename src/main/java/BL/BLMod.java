@@ -75,6 +75,7 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new RedRain());
         BaseMod.addCard((AbstractCard)new RedRivers());
         BaseMod.addCard((AbstractCard)new RedShadow());
+        BaseMod.addCard((AbstractCard)new RiversOfBlood());
 
     }
 
