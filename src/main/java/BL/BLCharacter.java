@@ -32,11 +32,13 @@ public class BLCharacter extends CustomPlayer {
     public static final int STARTING_GOLD = 154;
     public static final int HAND_SIZE = 5;
     private static final int ASCENSION_MAX_HP_LOSS = 5;
-    //public int bloodPool = 0;
+
+    private int ruinousReveletionDiscardCount;
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String)null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
+        this.ruinousReveletionDiscardCount = 0;
     }
 
     public Color getSlashAttackColor() {
@@ -136,7 +138,14 @@ public class BLCharacter extends CustomPlayer {
 
     public void onVictory() {
         super.onVictory();
-        //this.bloodPool = 0;
+        this.ruinousReveletionDiscardCount = 0;
+    }
+
+    public int getRuinousReveletionDiscardCount(){
+        return this.ruinousReveletionDiscardCount;
+    }
+    public void changeRuinousReveletionDiscardCount(int changeValue){
+        this.ruinousReveletionDiscardCount += changeValue;
     }
 
 
