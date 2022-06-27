@@ -28,7 +28,7 @@ public class Shade extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, BLCardEnum.BL, CardRarity.COMMON, CardTarget.SELF);
         this.baseBlock = this.block = BLOCK;
         this.exhaust = true;
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+        this.tags.add(AbstractCard.CardTags.STARTER_DEFEND);
 
     }
 
