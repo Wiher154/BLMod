@@ -36,6 +36,8 @@ public class Fang extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, BLCardEnum.BL, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = HEAL;
+        this.tags.add(AbstractCard.CardTags.STRIKE);
+        this.tags.add(AbstractCard.CardTags.STARTER_STRIKE);
 
     }
 

@@ -89,20 +89,10 @@ public class BLCharacter extends CustomPlayer {
         //retVal.add("BLMod:Shade");
         //retVal.add("BLMod:Transfusion");
         //retVal.add("BLMod:Feast");
-        retVal.add("BLMod:MadnessForm");
-        retVal.add("BLMod:MadnessForm");
-        retVal.add("BLMod:MadnessForm");
-        retVal.add("BLMod:MidnightChoir");
-        retVal.add("BLMod:MidnightChoir");
-        retVal.add("BLMod:MidnightChoir");
-        retVal.add("BLMod:Tap");
-        retVal.add("BLMod:Tap");
-        retVal.add("BLMod:Tap");
-        retVal.add("BLMod:MadEye");
-        retVal.add("BLMod:MadEye");
-        retVal.add("BLMod:MadEye");
-        retVal.add("BLMod:DarkTide");
-        retVal.add("BLMod:DarkTide");
+        retVal.add("BLMod:RiversOfBlood");
+        retVal.add("BLMod:RiversOfBlood");
+        retVal.add("BLMod:RiversOfBlood");
+
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
@@ -148,6 +138,8 @@ public class BLCharacter extends CustomPlayer {
         super.onVictory();
         //this.bloodPool = 0;
     }
+
+
 
 }
 

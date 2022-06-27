@@ -20,7 +20,7 @@ public class BloodVeil extends BLBloodcostCard {
     public static final String ID = "BLMod:BloodVeil";
     public static final String NAME = "Blood Veil";
     public static final String DESCRIPTION = "Bloodcost: 4 NL Block !B! NL Artefact !M! NL When i'm discarded play me for free";
-    public static final String IMG_PATH = "img/fang.png";
+    public static final String IMG_PATH = "img/temp.png";
 
     private static final int COST = 0;
     private static final int BLOCK = 8;

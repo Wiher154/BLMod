@@ -2,9 +2,7 @@ package BL;
 
 import BL.Cards.Attack.Common.*;
 import BL.Cards.Attack.Rare.Feast;
-import BL.Cards.Attack.Uncommon.BloodVeil;
-import BL.Cards.Attack.Uncommon.Jaw;
-import BL.Cards.Attack.Uncommon.MidnightChoir;
+import BL.Cards.Attack.Uncommon.*;
 import BL.Cards.Power.Common.BrokenConcentration;
 import BL.Cards.Power.Common.Infusion;
 import BL.Cards.Power.Common.MadEye;
@@ -73,6 +71,11 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new MadnessForm());
         BaseMod.addCard((AbstractCard)new MidnightChoir());
         BaseMod.addCard((AbstractCard)new Tap());
+        BaseMod.addCard((AbstractCard)new RedMadEye());
+        BaseMod.addCard((AbstractCard)new RedRain());
+        BaseMod.addCard((AbstractCard)new RedRivers());
+        BaseMod.addCard((AbstractCard)new RedShadow());
+        BaseMod.addCard((AbstractCard)new RiversOfBlood());
 
     }
 

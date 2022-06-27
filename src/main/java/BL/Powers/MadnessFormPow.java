@@ -31,6 +31,7 @@ public class MadnessFormPow extends AbstractPower{
     }
 
     public void onDrawOrDiscard(){
+
         AbstractMonster mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
         if(mon != null)
             if(!mon.isDying && mon.currentHealth > 0)

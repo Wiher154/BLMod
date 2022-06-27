@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10b721b2-fa84-4e8e-b209-3029b55c3663" name="Changes" comment="Fang no basic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Uncommon/MidnightChoir.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Rare/MadnessForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Skill/Common/Tap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Powers/MadnessFormPow.java" afterDir="false" />
+    <list default="true" id="10b721b2-fa84-4e8e-b209-3029b55c3663" name="Changes" comment="===Changes===&#10;Baleful now die Test&#10;&#10;===BugFix===&#10;MadEye Test&#10;&#10;===New===&#10;MadnessForm+ Test&#10;MadnessFormPow+&#10;MidnightChoir+ Test&#10;Tap+ Test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Common/RedRivers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Uncommon/RedMadEye.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Uncommon/RedRain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Skill/Common/RedShadow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BL/BLCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/BLCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BL/BLMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/BLMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Common/MadEye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Common/MadEye.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Uncommon/BalefulJourney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Uncommon/BalefulJourney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Common/Fang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Common/Fang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Uncommon/BloodVeil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Attack/Uncommon/BloodVeil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Rare/MadnessForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Power/Rare/MadnessForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Cards/Skill/Common/Shade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Cards/Skill/Common/Shade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BL/Powers/MadnessFormPow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BL/Powers/MadnessFormPow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="home_15.1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655039413570</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="===Changes===&#10;Baleful now die Test&#10;&#10;===BugFix===&#10;MadEye Test&#10;&#10;===New===&#10;MadnessForm+ Test&#10;MadnessFormPow+&#10;MidnightChoir+ Test&#10;Tap+ Test">
+      <created>1655048354774</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655048354774</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,7 +109,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="home_15.1" />
+                        <option value="0.15.2" />
                       </list>
                     </value>
                   </entry>
@@ -113,7 +123,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fang no basic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fang no basic" />
+    <MESSAGE value="Baleful now die Test" />
+    <MESSAGE value="===Changes===&#10;Baleful now die Test&#10;&#10;===BugFix===&#10;MadEye Test&#10;&#10;===New===&#10;MadnessForm+ Test&#10;MadnessFormPow+&#10;MidnightChoir+ Test&#10;Tap+ Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="===Changes===&#10;Baleful now die Test&#10;&#10;===BugFix===&#10;MadEye Test&#10;&#10;===New===&#10;MadnessForm+ Test&#10;MadnessFormPow+&#10;MidnightChoir+ Test&#10;Tap+ Test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
