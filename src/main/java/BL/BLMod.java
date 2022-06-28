@@ -3,6 +3,7 @@ package BL;
 import BL.Cards.Attack.Common.*;
 import BL.Cards.Attack.Rare.Feast;
 import BL.Cards.Attack.Rare.RuinousRevelation;
+import BL.Cards.Attack.Rare.SanguineMadEye;
 import BL.Cards.Attack.Uncommon.BloodVeil;
 import BL.Cards.Attack.Uncommon.Jaw;
 import BL.Cards.Attack.Uncommon.MidnightChoir;
@@ -19,6 +20,7 @@ import BL.Cards.Power.Uncommon.DrawnInBlood;
 import BL.Cards.Skill.Common.*;
 import BL.Cards.Skill.Rare.BloodRitual;
 import BL.Cards.Skill.Rare.EvolveRitual;
+import BL.Cards.Skill.Rare.SanguinePool;
 import BL.Cards.Skill.Uncommon.BloodSign;
 import BL.Cards.Skill.Uncommon.BatForm;
 import BL.Cards.Skill.Uncommon.InTheShadows;
@@ -83,6 +85,9 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new RiversOfBlood());
         BaseMod.addCard((AbstractCard)new RuinousRevelation());
         BaseMod.addCard((AbstractCard)new SanguineForm());
+        BaseMod.addCard((AbstractCard)new SanguineMadEye());
+        BaseMod.addCard((AbstractCard)new SanguinePool());
+        BaseMod.addCard((AbstractCard)new Shadow());
 
     }
 

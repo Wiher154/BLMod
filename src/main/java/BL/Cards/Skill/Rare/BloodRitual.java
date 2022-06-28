@@ -18,7 +18,7 @@ public class BloodRitual extends CustomCard {
     public static final String ID = "BLMod:BloodRitual";
     public static final String NAME = "Blood Ritual";
     public static final String DESCRIPTION = "Draw !M! NL Gain !M! Blood NL Gain !M! Energy NL Lose !M! HP.";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Blood ritual.png";
 
     private static final int COST = 1;
 
