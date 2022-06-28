@@ -20,7 +20,7 @@ public class BloodBarrier extends CustomCard {
     public static final String ID = "BLMod:BloodBarrier";
     public static final String NAME = "Blood Barrier";
     public static final String DESCRIPTION = "Bloodcost: up to 2 NL Deal !D! NL Block amount of damage + !M! times Blood spend";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Blood barrier.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 7;

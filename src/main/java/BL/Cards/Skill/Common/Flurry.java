@@ -45,6 +45,8 @@ public class Flurry extends CustomCard {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.cardsToPreview.upgrade();
+            this.rawDescription = "Create !M! Scratch+ in hand NL Exhaust";
+            this.initializeDescription();
         }
     }
 

@@ -14,7 +14,7 @@ public class BloodSign extends BLBloodcostCard {
     public static final String ID = "BLMod:BloodSign";
     public static final String NAME = "Blood Sign";
     public static final String DESCRIPTION = "Bloodcost: 2 NL Draw !M! NL If i'm discarded Draw 1";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Blood sign.png";
 
     private static final int COST = 0;
     private static final int BLOOD_COST = 2;

@@ -20,7 +20,7 @@ public class BatForm extends CustomCard {
     public static final String ID = "BLMod:BatForm";
     public static final String NAME = "Bat Form";
     public static final String DESCRIPTION = "Evade next !M! attack(s). NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Bat form.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;

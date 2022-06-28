@@ -22,7 +22,7 @@ public class BalefulJourney extends CustomCard {
     public static final String ID = "BLMod:BalefulJourney";
     public static final String NAME = "Baleful Journey";
     public static final String DESCRIPTION = "Lose 3 HP. If you play it !M! times - win battle";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Baleful journey.png";
 
     private static final int COST = 3;
     private static final int MAGIC_NUMBER = 4;
