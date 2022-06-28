@@ -62,7 +62,7 @@ public class RedRain extends CustomCard {
     }
 
     public void triggerOnManualDiscard() {
-        AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
+        AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
         if(mon != null)
             addToBot((AbstractGameAction) new LoseHPAction(mon,AbstractDungeon.player,this.discard_hp_loss));
     }

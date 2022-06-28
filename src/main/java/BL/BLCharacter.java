@@ -91,20 +91,18 @@ public class BLCharacter extends CustomPlayer {
         //retVal.add("BLMod:Shade");
         //retVal.add("BLMod:Transfusion");
         //retVal.add("BLMod:Feast");
-        retVal.add("BLMod:RedMadEye");
-        retVal.add("BLMod:RedMadEye");
-        retVal.add("BLMod:RedMadEye");
-        retVal.add("BLMod:RedRain");
-        retVal.add("BLMod:RedRain");
-        retVal.add("BLMod:RedRain");
-        retVal.add("BLMod:RedShadow");
-        retVal.add("BLMod:RedShadow");
-        retVal.add("BLMod:RedShadow");
-        retVal.add("BLMod:RedRivers");
-        retVal.add("BLMod:RedRivers");
-        retVal.add("BLMod:RedRivers");
-        retVal.add("BLMod:DarkTide");
-        retVal.add("BLMod:DarkTide");
+        retVal.add("BLMod:BloodRitual");
+        retVal.add("BLMod:BloodRitual");
+        retVal.add("BLMod:BloodRitual");
+
+        retVal.add("BLMod:RiversOfBlood");
+        retVal.add("BLMod:RiversOfBlood");
+        retVal.add("BLMod:RiversOfBlood");
+
+        retVal.add("BLMod:SanguineForm");
+        retVal.add("BLMod:SanguineForm");
+        retVal.add("BLMod:SanguineForm");
+
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
@@ -157,6 +155,8 @@ public class BLCharacter extends CustomPlayer {
     public void changeRuinousReveletionDiscardCount(int changeValue){
         this.ruinousReveletionDiscardCount += changeValue;
     }
+
+
 
 }
 

@@ -57,7 +57,7 @@ public class RedMadEye extends BLBloodcostCard {
     }
 
     public void triggerOnManualDiscard() {
-        AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
+        AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
         if(mon != null) {
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) mon, AbstractDungeon.player, (AbstractPower) new WeakPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) mon, AbstractDungeon.player, (AbstractPower) new FrailPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));

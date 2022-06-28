@@ -3,12 +3,10 @@ package BL.Cards.Attack.Uncommon;
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -30,7 +28,7 @@ public class RiversOfBlood extends BLBloodcostCard {
     private int bloodSpendDamageMulti;
 
     public RiversOfBlood() {
-        super(ID, NAME, IMG_PATH, COST, BLOOD_COST, DESCRIPTION, AbstractCard.CardType.ATTACK, BLCardEnum.BL, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, BLOOD_COST, DESCRIPTION, AbstractCard.CardType.ATTACK, BLCardEnum.BL, AbstractCard.CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
         this.SetBloodcostToAll();
@@ -43,11 +41,15 @@ public class RiversOfBlood extends BLBloodcostCard {
         int bloodSpend = 0;
         if(pow != null)
             bloodSpend = pow.amount;
-        for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters){
-            addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage + bloodSpendDamageMulti*bloodSpend, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-            if(mon.currentBlock+mon.currentHealth <= this.damage + bloodSpendDamageMulti*bloodSpend)
+
+        int totalDamage = this.damage + bloodSpendDamageMulti*bloodSpend;
+
+        addToBot(new DamageAllEnemiesAction(p, totalDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
+
+        for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters)
+            if(mon.currentBlock+mon.currentHealth <= totalDamage && !mon.isEscaping && !mon.isDying)
                 addToBot((AbstractGameAction)new HealAction(p,p,this.magicNumber));
-        }
+
 
     }
 
