@@ -91,9 +91,6 @@ public class BLCharacter extends CustomPlayer {
         //retVal.add("BLMod:Shade");
         //retVal.add("BLMod:Transfusion");
         //retVal.add("BLMod:Feast");
-        retVal.add("BLMod:SanguinePool");
-        retVal.add("BLMod:SanguinePool");
-        retVal.add("BLMod:SanguinePool");
 
         retVal.add("BLMod:SanguineMadEye");
         retVal.add("BLMod:SanguineMadEye");
