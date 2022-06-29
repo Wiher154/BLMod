@@ -19,7 +19,7 @@ public class Jaw extends CustomCard {
     public static final String ID = "BLMod:Jaw";
     public static final String NAME = "Jaw";
     public static final String DESCRIPTION = "Deal !D! NL Heal unblocked amount";
-    public static final String IMG_PATH = "img/fang.png";
+    public static final String IMG_PATH = "img/cards/Jaw.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;

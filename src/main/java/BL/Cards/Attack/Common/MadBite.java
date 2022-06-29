@@ -18,7 +18,7 @@ public class MadBite extends CustomCard {
     public static final String ID = "BLMod:MadBite";
     public static final String NAME = "MadBite";
     public static final String DESCRIPTION = "To play Discard 1 NL Deal !D! NL Gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Mad bite.png";
 
     private static final int COST = 0;
     private static final int DISCARD_COST = 1;

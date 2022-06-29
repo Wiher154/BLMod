@@ -16,7 +16,7 @@ public class MadEye extends CustomCard {
     public static final String ID = "BLMod:MadEye";
     public static final String NAME = "Mad Eye";
     public static final String DESCRIPTION = "Weak !M! NL Frail !M! When i'm discarded remove !M! buff(s) from random enemy";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Mad eye.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;

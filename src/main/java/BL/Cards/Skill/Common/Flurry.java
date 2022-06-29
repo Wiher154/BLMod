@@ -13,7 +13,7 @@ public class Flurry extends CustomCard {
     public static final String ID = "BLMod:Flurry";
     public static final String NAME = "Flurry";
     public static final String DESCRIPTION = "Create !M! Scratch in hand NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Flurry.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 2;

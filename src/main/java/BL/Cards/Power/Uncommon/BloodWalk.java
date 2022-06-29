@@ -15,7 +15,7 @@ public class BloodWalk extends CustomCard {
     public static final String ID = "BLMod:BloodWalk";
     public static final String NAME = "Blood Walk";
     public static final String DESCRIPTION = "At the end of your turn gain !M! Blood THEN gain Block equal to your Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Blood walk.png";
 
     private static final int COST = 2;
     private static final int MAGIC_NUMBER = 2;

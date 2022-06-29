@@ -22,7 +22,7 @@ public class Fang extends CustomCard {
     public static final String ID = "BLMod:Fang";
     public static final String NAME = "Fang";
     public static final String DESCRIPTION = "Deal !D! NL Heal !M!";
-    public static final String IMG_PATH = "img/fang.png";
+    public static final String IMG_PATH = "img/cards/Fang.png";
 
     private static final int COST = 1;
 

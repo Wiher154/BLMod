@@ -15,7 +15,7 @@ public class SanguineForm extends BLBloodcostCard {
     public static final String ID = "BLMod:SanguineForm";
     public static final String NAME = "Sanguine Form";
     public static final String DESCRIPTION = "Bloodcost: 5 NL When you get Blood gain that much Strength";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Sanguine form.png";
 
     private static final int COST = 2;
     private static final int MAGIC_NUMBER = 1;

@@ -19,7 +19,7 @@ public class Feast extends CustomCard {
     public static final String ID = "BLMod:Feast";
     public static final String NAME = "Feast";
     public static final String DESCRIPTION = "Deal !D!. If it kills gain !M! to max HP. /nExhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Feast.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 8;

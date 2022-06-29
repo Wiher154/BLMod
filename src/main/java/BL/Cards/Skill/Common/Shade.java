@@ -15,7 +15,7 @@ public class Shade extends CustomCard {
     public static final String ID = "BLMod:Shade";
     public static final String NAME = "Shade";
     public static final String DESCRIPTION = "Block !B! NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Shade.png";
 
     private static final int COST = 1;
 

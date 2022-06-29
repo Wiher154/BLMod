@@ -17,7 +17,7 @@ public class MidnightChoir extends BLBloodcostCard {
     public static final String ID = "BLMod:MidnightChoir";
     public static final String NAME = "Midnight Choir";
     public static final String DESCRIPTION = "Bloodcost: 3 NL Deal !D! to all enemies NL Gain that much unblocked damage Block NL When i'm discarded create Tap in hand";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Midnight choir.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 6;

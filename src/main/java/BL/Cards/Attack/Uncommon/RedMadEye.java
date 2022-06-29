@@ -19,7 +19,7 @@ public class RedMadEye extends BLBloodcostCard {
     public static final String ID = "BLMod:RedMadEye";
     public static final String NAME = "Red Mad Eye";
     public static final String DESCRIPTION = "Bloodcost: 1 NL Deal !D! NL Weak !M! Frail !M! NL When i'm discarded random enemy gets Weak !M! Frail !M!";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Red mad eye.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 12;

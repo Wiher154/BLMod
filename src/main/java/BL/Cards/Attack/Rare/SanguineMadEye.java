@@ -21,7 +21,7 @@ public class SanguineMadEye extends BLBloodcostCard {
     public static final String ID = "BLMod:SanguineMadEye";
     public static final String NAME = "Sanguine Mad Eye";
     public static final String DESCRIPTION = "Bloodcost: All NL Deal !D! * Blood spend NL When i'm discarded 1 random enemy Vulnerable and Frail !M! NL Gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Sanguine mad eye.png";
 
     private static final int COST = 2;
 

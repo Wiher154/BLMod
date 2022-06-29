@@ -13,7 +13,7 @@ public class RedShadow extends BLBloodcostCard {
     public static final String ID = "BLMod:RedShadow";
     public static final String NAME = "Red Shadow";
     public static final String DESCRIPTION = "Bloodcost: 1 NL Block !B! NL When i'm discarded play me for free";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Red shadow.png";
 
     private static final int COST = 1;
     private static final int BLOCK = 10;

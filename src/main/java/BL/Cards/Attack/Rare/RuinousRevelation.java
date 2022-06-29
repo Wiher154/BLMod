@@ -18,7 +18,7 @@ public class RuinousRevelation extends CustomCard {
     public static final String ID = "BLMod:RuinousRevelation";
     public static final String NAME = "Ruinous Revelation";
     public static final String DESCRIPTION = "To play Discard !M! NL If Discarded !M! times Deal !D! x 10 NL When i'm discarded Deal !D! to random enemy";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Ruinous revelation.png";
 
     private static final int COST = 0;
     private static final int DISCARD_COST = 3;

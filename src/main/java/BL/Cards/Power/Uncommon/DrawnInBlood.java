@@ -17,7 +17,7 @@ public class DrawnInBlood extends BLBloodcostCard {
     public static final String ID = "BLMod:DrawnInBlood";
     public static final String NAME = "Drawn in Blood";
     public static final String DESCRIPTION = "Bloodcost: All NL Gain Strength equal Blood spend NL Every enemy gain Frail !M!";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Drawn in blood.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;

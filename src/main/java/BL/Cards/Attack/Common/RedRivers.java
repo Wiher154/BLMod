@@ -17,7 +17,7 @@ public class RedRivers extends BLBloodcostCard {
     public static final String ID = "BLMod:RedRivers";
     public static final String NAME = "Red Rivers";
     public static final String DESCRIPTION = "Bloodcost: 2 NL Everyone Lose !D! HP NL Heal amount lost by enemies NL When i'm discarded gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Red rivers.png";
 
     private static final int COST = 0;
     private static final int DAMAGE = 5;

@@ -16,7 +16,7 @@ public class Tap extends CustomCard {
     public static final String ID = "BLMod:Tap";
     public static final String NAME = "Tap";
     public static final String DESCRIPTION = "Lose !M! HP NL Gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Tap.png";
 
     private static final int COST = 0;
 

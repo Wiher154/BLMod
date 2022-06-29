@@ -18,7 +18,7 @@ public class Infusion extends BLBloodcostCard {
     public static final String ID = "BLMod:Infusion";
     public static final String NAME = "Infusion";
     public static final String DESCRIPTION = "Bloodcost: !M! NL Gain !M! Strength and Dexterity";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Infusion.png";
 
     private static final int COST = 0;
     private static final int BLOOD_COST = 2;

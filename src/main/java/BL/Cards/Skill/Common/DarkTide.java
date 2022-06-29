@@ -16,7 +16,7 @@ public class DarkTide extends CustomCard {
     public static final String ID = "BLMod:DarkTide";
     public static final String NAME = "Dark Tide";
     public static final String DESCRIPTION = "Block !B! NL Deal your Block to random enemy";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Dark tide.png";
 
     private static final int COST = 0;
     private static final int BLOCK = 3;

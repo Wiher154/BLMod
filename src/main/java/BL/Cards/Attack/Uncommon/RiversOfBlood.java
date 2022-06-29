@@ -15,7 +15,7 @@ public class RiversOfBlood extends BLBloodcostCard {
     public static final String ID = "BLMod:RiversOfBlood";
     public static final String NAME = "Rivers Of Blood";
     public static final String DESCRIPTION = "Spend all Blood NL Deal !D! + 2*blood spend to all enemies NL Heal !M! for each enemy killed";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Rivers of blood.png";
 
     private static final int COST = 2;
     private static final int BLOOD_COST = 0;
