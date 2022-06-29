@@ -14,7 +14,7 @@ public class Shadow extends CustomCard {
     public static final String ID = "BLMod:Shadow";
     public static final String NAME = "Shadow";
     public static final String DESCRIPTION = "Block !B! NL Create !M! Shade in Discard NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Shadow.png";
 
     private static final int COST = 1;
     private static final int BLOCK = 10;

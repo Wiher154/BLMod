@@ -17,7 +17,7 @@ public class SanguinePool extends BLBloodcostCard {
     public static final String ID = "BLMod:SanguinePool";
     public static final String NAME = "Sanguine Pool";
     public static final String DESCRIPTION = "Bloodcost: 2 NL Lose 20% of current HP (min 1) NL Invulnerable for 1 turn NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Sanguine pool.png";
 
     private static final int COST = 3;
     private static final int BLOOD_COST = 2;

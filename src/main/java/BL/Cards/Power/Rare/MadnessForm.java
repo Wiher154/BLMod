@@ -16,7 +16,7 @@ public class MadnessForm extends CustomCard {
     public static final String ID = "BLMod:MadnessForm";
     public static final String NAME = "Madness Form";
     public static final String DESCRIPTION = "To play Discard !M! NL When ANY Draw or Discard deal 1 to random enemy NL";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Madness form.png";
 
     private static final int COST = 0;
     private static final int MAGIC_NUMBER = 2;

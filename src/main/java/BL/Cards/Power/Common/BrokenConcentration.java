@@ -17,7 +17,7 @@ public class BrokenConcentration extends CustomCard {
     public static final String ID = "BLMod:BrokenConcentration";
     public static final String NAME = "Broken Concentration";
     public static final String DESCRIPTION = "Weak !M! all enemies NL When i'm discarded play me for free";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Broken concentration.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;

@@ -14,7 +14,7 @@ public class VeinFiltering extends CustomCard {
     public static final String ID = "BLMod:VeinFiltering";
     public static final String NAME = "Vein Filtering";
     public static final String DESCRIPTION = "Draw !M! NL Discard !M!";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Vein filtering.png";
 
     private static final int COST = 0;
     private static final int MAGIC_NUMBER = 2;

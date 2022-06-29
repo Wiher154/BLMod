@@ -17,7 +17,7 @@ public class Scratch extends CustomCard {
     public static final String ID = "BLMod:Scratch";
     public static final String NAME = "Scratch";
     public static final String DESCRIPTION = "Deal !D! NL Gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Scratch.png";
 
     private static final int COST = 0;
     private static final int DAMAGE = 5;

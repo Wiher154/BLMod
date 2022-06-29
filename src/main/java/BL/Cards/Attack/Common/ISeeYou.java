@@ -18,7 +18,7 @@ public class ISeeYou extends BLBloodcostCard {
     public static final String ID = "BLMod:ISeeYou";
     public static final String NAME = "I See You";
     public static final String DESCRIPTION = "Bloodcost: 1 NL Deal !D! NL Weak !M! NL Vulnerable !M!";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/I see you.png";
 
     private static final int COST = 0;
     private static final int BLOOD_COST = 1;

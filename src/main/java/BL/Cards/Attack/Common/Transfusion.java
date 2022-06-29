@@ -18,7 +18,7 @@ public class Transfusion extends CustomCard {
     public static final String ID = "BLMod:Transfusion";
     public static final String NAME = "Transfusion";
     public static final String DESCRIPTION = "Deal !D! NL Gain !M! Blood";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Transfusion.png";
 
     private static final int COST = 2;
     private static final int DAMAGE = 10;

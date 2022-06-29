@@ -17,7 +17,7 @@ public class RedRain extends CustomCard {
     public static final String ID = "BLMod:RedRain";
     public static final String NAME = "Red Rain";
     public static final String DESCRIPTION = "Everyone Lose !M! HP NL Gain !M! Blood NL When i'm discarded random enemy lose 3 HP";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Red rain.png";
 
     private static final int COST = 0;
 

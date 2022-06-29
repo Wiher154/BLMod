@@ -20,7 +20,7 @@ public class EvolveRitual extends BLBloodcostCard {
     public static final String ID = "BLMod:EvolveRitual";
     public static final String NAME = "Evolve Ritual";
     public static final String DESCRIPTION = "Bloodcost: 3 NL Lose !M! HP NL Upgrade random card in deck NL Exhaust";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/Evolve ritual.png";
 
     private static final int COST = 1;
     private static final int BLOOD_COST = 3;

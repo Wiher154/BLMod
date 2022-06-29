@@ -13,7 +13,7 @@ public class InTheShadows extends CustomCard {
     public static final String ID = "BLMod:InTheShadows";
     public static final String NAME = "In the Shadows";
     public static final String DESCRIPTION = "Gain Block equal to your exhausted skills !M! times";
-    public static final String IMG_PATH = "img/temp.png";
+    public static final String IMG_PATH = "img/cards/In the shadows.png";
 
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 4;
