@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.*;
 public class MadEye extends CustomCard {
     public static final String ID = "BLMod:MadEye";
     public static final String NAME = "Mad Eye";
-    public static final String DESCRIPTION = "Weak !M! NL Frail !M! When i'm discarded remove !M! buff(s) from random enemy";
+    public static final String DESCRIPTION = "Weak !M! NL Frail !M! NL When i'm discarded remove !M! buff(s) from random enemy";
     public static final String IMG_PATH = "img/cards/Mad eye.png";
 
     private static final int COST = 1;

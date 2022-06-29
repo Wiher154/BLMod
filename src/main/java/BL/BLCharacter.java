@@ -82,31 +82,24 @@ public class BLCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
-        //retVal.add("BLMod:Fang");
-        //retVal.add("BLMod:Fang");
-        //retVal.add("BLMod:Fang");
-        //retVal.add("BLMod:Shade");
-        //retVal.add("BLMod:Shade");
-        //retVal.add("BLMod:Shade");
-        //retVal.add("BLMod:Shade");
-        //retVal.add("BLMod:Transfusion");
-        //retVal.add("BLMod:Feast");
+        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Shade");
+        retVal.add("BLMod:Shade");
+        retVal.add("BLMod:Shade");
+        retVal.add("BLMod:Shade");
+        retVal.add("BLMod:Transfusion");
+        retVal.add("BLMod:Feast");
 
-        retVal.add("BLMod:SanguineMadEye");
-        retVal.add("BLMod:SanguineMadEye");
-        retVal.add("BLMod:SanguineMadEye");
 
-        retVal.add("BLMod:Shadow");
-        retVal.add("BLMod:Shadow");
-        retVal.add("BLMod:Shadow");
-
-        retVal.add("BLMod:VeinFiltering");
+        /* retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:BloodRitual");
-        retVal.add("BLMod:EvolveRitual");
+        retVal.add("BLMod:EvolveRitual");*/
         //retVal.add("BLMod:Transfusion");
         return retVal;
     }

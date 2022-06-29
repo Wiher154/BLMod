@@ -48,7 +48,7 @@ public class MidnightChoir extends BLBloodcostCard {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
             this.cardsToPreview.upgrade();
-            this.rawDescription = "Deal !D! to all enemies NL Gain that much unblocked damage Block NL When i'm discarded create Tap+ in hand";
+            this.rawDescription = "Bloodcost: 3 NL Deal !D! to all enemies NL Gain that much unblocked damage Block NL When i'm discarded create Tap+ in hand";
             this.initializeDescription();
         }
     }

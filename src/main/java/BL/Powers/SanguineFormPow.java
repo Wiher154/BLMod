@@ -31,7 +31,7 @@ public class SanguineFormPow extends AbstractPower {
             addToTop((AbstractGameAction) new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if(power.ID.equals("BLMod:Blood"))
+        if(power.ID.equals("BLMod:Blood") && power.amount > 0)
             addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)source, (AbstractCreature)source, (AbstractPower)new StrengthPower((AbstractCreature)source, power.amount), power.amount));
     }
 }
