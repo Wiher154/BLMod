@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 public class Feast extends CustomCard {
     public static final String ID = "BLMod:Feast";
     public static final String NAME = "Feast";
-    public static final String DESCRIPTION = "Deal !D!. If it kills gain !M! to max HP. /nExhaust";
+    public static final String DESCRIPTION = "Deal !D!. If it kills gain !M! to max HP. NL Exhaust";
     public static final String IMG_PATH = "img/cards/Feast.png";
 
     private static final int COST = 1;
@@ -52,9 +52,9 @@ public class Feast extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
         }
     }
 

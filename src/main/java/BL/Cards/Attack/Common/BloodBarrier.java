@@ -65,9 +65,9 @@ public class BloodBarrier extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.rawDescription = "Bloodcost: up to 3 NL Deal !D! NL Block amount of damage + !M! times Blood spend";
             this.initializeDescription();
         }

@@ -40,9 +40,9 @@ public class BloodSign extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
-            upgradeBloodCost(UPGRADE_BLOOD_COST_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeBloodCost(UPGRADE_BLOOD_COST_AMOUNT);
             this.rawDescription = "Bloodcost: 1 NL Draw !M! NL If i'm discarded Draw 1";
             this.initializeDescription();
 

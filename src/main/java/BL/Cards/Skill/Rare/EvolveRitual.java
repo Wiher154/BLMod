@@ -72,8 +72,8 @@ public class EvolveRitual extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.rawDescription = "Bloodcost: 3 NL Lose !M! HP NL Upgrade 2 random cards in deck NL Exhaust";
             this.initializeDescription();
         }

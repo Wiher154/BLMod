@@ -49,7 +49,7 @@ public class SanguinePool extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
+            this.upgradeName();
             this.exhaust = false;
             this.rawDescription = "Bloodcost: 2 NL Lose 20% of current HP (min 1) NL Invulnerable for 1 turn NL Retain";
             this.initializeDescription();

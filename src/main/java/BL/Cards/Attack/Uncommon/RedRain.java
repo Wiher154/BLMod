@@ -53,8 +53,8 @@ public class RedRain extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.discard_hp_loss += UPGRADE_DISCARD_HP_LOSS_AMOUNT;
             this.rawDescription = "Everyone Lose !M! HP NL Gain !M! Blood NL When i'm discarded random enemy lose 5 HP";
             this.initializeDescription();

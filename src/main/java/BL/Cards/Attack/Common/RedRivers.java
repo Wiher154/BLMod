@@ -1,6 +1,7 @@
 package BL.Cards.Attack.Common;
 
 import BL.Abstract.BLBloodcostCard;
+import BL.Actions.RedRiversDamageHeal;
 import BL.BLCardEnum;
 import BL.Powers.Blood;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -35,10 +36,11 @@ public class RedRivers extends BLBloodcostCard {
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m){
         addToBot((AbstractGameAction) new LoseHPAction(p,p,this.damage));
-        for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters) {
+        addToBot((AbstractGameAction)new RedRiversDamageHeal(this.damage));
+        /*for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot((AbstractGameAction) new LoseHPAction(mon,p,this.damage));
             addToBot((AbstractGameAction) new HealAction(p,p,this.damage));
-        }
+        }*/
 
     }
 
@@ -50,9 +52,9 @@ public class RedRivers extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
         }
     }
 

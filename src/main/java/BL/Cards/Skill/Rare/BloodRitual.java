@@ -49,8 +49,8 @@ public class BloodRitual extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
         }
     }
 

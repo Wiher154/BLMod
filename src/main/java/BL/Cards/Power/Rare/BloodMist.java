@@ -24,6 +24,7 @@ public class BloodMist extends BLBloodcostCard {
     public static final String IMG_PATH = "img/cards/Blood mist.png";
 
     private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_AMOUNT = -1;
     private static final int BLOOD_COST = 2;
@@ -47,9 +48,9 @@ public class BloodMist extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeBloodCost(UPGRADE_AMOUNT);
-            this.cost += UPGRADE_AMOUNT;
+            this.upgradeName();
+            this.upgradeBloodCost(UPGRADE_AMOUNT);
+            this.upgradeBaseCost(UPGRADED_COST);
             this.rawDescription = "Bloodcost: 1 NL Play the first attack you play again each turn";
             this.initializeDescription();
         }

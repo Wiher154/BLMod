@@ -49,9 +49,9 @@ public class BloodVeil extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeBlock(UPGRADE_BLOCK_AMOUNT);
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeBlock(UPGRADE_BLOCK_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
         }
     }
 

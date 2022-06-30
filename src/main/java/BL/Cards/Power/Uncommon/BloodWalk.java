@@ -18,8 +18,8 @@ public class BloodWalk extends CustomCard {
     public static final String IMG_PATH = "img/cards/Blood walk.png";
 
     private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int MAGIC_NUMBER = 2;
-    private static final int UPGRADE_COST_AMOUNT = -1;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 1;
 
     public BloodWalk() {
@@ -40,9 +40,9 @@ public class BloodWalk extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
-            this.cost +=UPGRADE_COST_AMOUNT;
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 
