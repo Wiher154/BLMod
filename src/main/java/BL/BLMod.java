@@ -93,6 +93,7 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new Shark());
         BaseMod.addCard((AbstractCard)new Tabadash());
         BaseMod.addCard((AbstractCard)new VampiricTutor());
+        BaseMod.addCard((AbstractCard)new WihersDesire());
 
 
     }

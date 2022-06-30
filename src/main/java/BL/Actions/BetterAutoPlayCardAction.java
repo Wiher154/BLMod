@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,7 +27,7 @@ public class BetterAutoPlayCardAction extends AbstractGameAction{
             if (this.card.target == AbstractCard.CardTarget.ENEMY)
                 m = AbstractDungeon.getRandomMonster();
             this.group.removeCard(this.card);
-            AbstractDungeon.actionManager.addToTop((AbstractGameAction)new QueueCardAction(this.card, (AbstractCreature)m));
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(this.card, m, card.energyOnUse, true, true), true);
         }
     }
 }

@@ -28,8 +28,8 @@ public class DeckToTopDeckAction extends AbstractGameAction {
 
                 while(var1.hasNext()) {
                     AbstractCard c = (AbstractCard)var1.next();
+                    this.p.drawPile.removeCard(c);
                     this.p.drawPile.addToTop(c);
-                    //c.unhover();
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();

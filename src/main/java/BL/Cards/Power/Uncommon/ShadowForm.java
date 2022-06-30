@@ -10,12 +10,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.BarricadePower;
 import com.megacrit.cardcrawl.powers.BlurPower;
 
 public class ShadowForm extends CustomCard {
     public static final String ID = "BLMod:ShadowForm";
     public static final String NAME = "Shadow Form";
-    public static final String DESCRIPTION = "When you gain Block gain 1 Dexterity";
+    public static final String DESCRIPTION = "When you gain Block gain !M! Dexterity";
     public static final String IMG_PATH = "img/cards/Shadow form.png";
 
     private static final int COST = 1;
@@ -32,7 +33,7 @@ public class ShadowForm extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new ShadowFormPow((AbstractCreature) p, this.magicNumber), this.magicNumber));
         if(this.upgraded) {
-            addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new BlurPower(p,this.magicNumber)));
+            addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new BarricadePower(p)));
         }
 
 
@@ -47,7 +48,7 @@ public class ShadowForm extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = "When you gain Block gain 1 Dexterity NL Permanent Blur";
+            this.rawDescription = "When you gain Block gain !M! Dexterity NL Permanent Block";
             this.initializeDescription();
         }
     }
