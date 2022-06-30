@@ -80,7 +80,7 @@ public class BLCharacter extends CustomPlayer {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("BLMod:Fang");
+        /*retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
@@ -90,17 +90,38 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Transfusion");
-        retVal.add("BLMod:Feast");
+        retVal.add("BLMod:Feast");*/
 
+        retVal.add("BLMod:ShadowForm");
+        retVal.add("BLMod:ShadowForm");
+        retVal.add("BLMod:ShadowForm");
 
-        /* retVal.add("BLMod:VeinFiltering");
+        retVal.add("BLMod:Shadows");
+        retVal.add("BLMod:Shadows");
+        retVal.add("BLMod:Shadows");
+
+        retVal.add("BLMod:Shark");
+        retVal.add("BLMod:Shark");
+        retVal.add("BLMod:Shark");
+
+        retVal.add("BLMod:Tabadash");
+        retVal.add("BLMod:Tabadash");
+        retVal.add("BLMod:Tabadash");
+
+        retVal.add("BLMod:VampiricTutor");
+        retVal.add("BLMod:VampiricTutor");
+        retVal.add("BLMod:VampiricTutor");
+
+        retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:BloodRitual");
-        retVal.add("BLMod:EvolveRitual");*/
-        //retVal.add("BLMod:Transfusion");
+        retVal.add("BLMod:EvolveRitual");
+        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");
+
         return retVal;
     }
 

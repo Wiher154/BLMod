@@ -46,8 +46,8 @@ public class Jaw extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
         }
     }
 }

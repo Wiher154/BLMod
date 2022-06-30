@@ -20,8 +20,8 @@ public class DrawnInBlood extends BLBloodcostCard {
     public static final String IMG_PATH = "img/cards/Drawn in blood.png";
 
     private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
     private static final int MAGIC_NUMBER = 1;
-    private static final int UPGRADE_COST_AMOUNT = -1;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 2;
     private static final int BLOOD_COST = 0;
 
@@ -49,9 +49,9 @@ public class DrawnInBlood extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
-            this.cost += UPGRADE_COST_AMOUNT;
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 

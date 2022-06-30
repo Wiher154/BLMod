@@ -61,9 +61,9 @@ public class RiversOfBlood extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.bloodSpendDamageMulti += UPGRADE_BLOOD_SPEND_DAMAGE_MULTI_AMOUNT;
             this.rawDescription = "Spend all Blood NL Deal !D! + 3*blood spend to all enemies NL Heal !M! for each enemy killed";
             this.initializeDescription();

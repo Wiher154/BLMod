@@ -18,8 +18,9 @@ public class SanguineForm extends BLBloodcostCard {
     public static final String IMG_PATH = "img/cards/Sanguine form.png";
 
     private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int MAGIC_NUMBER = 1;
-    private static final int UPGRADE_COST_AMOUNT = -1;
+
     private static final int BLOOD_COST = 5;
     private static final int UPGRADE_BLOOD_COST_AMOUNT = -2;
 
@@ -41,9 +42,9 @@ public class SanguineForm extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeBloodCost(UPGRADE_BLOOD_COST_AMOUNT);
-            this.cost += UPGRADE_COST_AMOUNT;
+            this.upgradeName();
+            this.upgradeBloodCost(UPGRADE_BLOOD_COST_AMOUNT);
+            this.upgradeBaseCost(UPGRADED_COST);
             this.rawDescription = "Bloodcost: 3 NL When you get Blood gain that much Strength";
             this.initializeDescription();
         }

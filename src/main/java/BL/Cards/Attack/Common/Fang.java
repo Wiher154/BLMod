@@ -47,8 +47,6 @@ public class Fang extends CustomCard {
         if (m != null)
             addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.1F));
         addToBot((AbstractGameAction)new FangVamp((AbstractCreature)m, var1, AbstractGameAction.AttackEffect.NONE,this.magicNumber));
-        //AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        //addToBot((AbstractGameAction) new HealAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber ));
     }
 
     @Override
@@ -59,9 +57,9 @@ public class Fang extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
-            upgradeMagicNumber(UPGRADE_HEAL_AMOUNT);
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE_AMOUNT);
+            this.upgradeMagicNumber(UPGRADE_HEAL_AMOUNT);
         }
     }
 

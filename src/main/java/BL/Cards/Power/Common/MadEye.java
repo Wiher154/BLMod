@@ -44,8 +44,8 @@ public class MadEye extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_AMOUNT);
         }
     }
 

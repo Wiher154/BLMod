@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class BalefulJourney extends CustomCard {
     public static final String ID = "BLMod:BalefulJourney";
     public static final String NAME = "Baleful Journey";
-    public static final String DESCRIPTION = "Lose 3 HP. If you play it !M! times - win battle";
+    public static final String DESCRIPTION = "Lose 3 HP. If you play it !M! times - kill all enemies";
     public static final String IMG_PATH = "img/cards/Baleful journey.png";
 
     private static final int COST = 3;
@@ -59,8 +59,8 @@ public class BalefulJourney extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
         }
     }
 

@@ -46,8 +46,8 @@ public class DarkTide extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeBlock(UPGRADE_BLOCK_AMOUNT);
+            this.upgradeName();
+            this.upgradeBlock(UPGRADE_BLOCK_AMOUNT);
             this.rawDescription = "Block !B! NL Deal your Block to random enemy NL Draw !M!";
             this.initializeDescription();
         }

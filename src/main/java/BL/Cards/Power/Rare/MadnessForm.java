@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class MadnessForm extends CustomCard {
     public static final String ID = "BLMod:MadnessForm";
     public static final String NAME = "Madness Form";
-    public static final String DESCRIPTION = "To play Discard !M! NL When ANY Draw or Discard deal 1 to random enemy NL";
+    public static final String DESCRIPTION = "To play Discard !M! NL When any card enters your Hand or Discard pile deal 1 to random enemy";
     public static final String IMG_PATH = "img/cards/Madness form.png";
 
     private static final int COST = 0;
@@ -48,10 +48,10 @@ public class MadnessForm extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.madness_amount++;
-            this.rawDescription = "To play Discard !M! NL When you Draw or Discard deal 2 to random enemy";
+            this.rawDescription = "To play Discard !M! NL When any card enters your Hand or Discard pile deal 2 to random enemy";
             this.initializeDescription();
         }
     }

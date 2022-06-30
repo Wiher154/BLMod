@@ -45,9 +45,9 @@ public class Infusion extends BLBloodcostCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_AMOUNT);
-            upgradeBloodCost(UPGRADE_AMOUNT);
+            this.upgradeName();
+            this.upgradeMagicNumber(UPGRADE_AMOUNT);
+            this.upgradeBloodCost(UPGRADE_AMOUNT);
 
         }
     }

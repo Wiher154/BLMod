@@ -11,19 +11,19 @@ import BL.Cards.Attack.Uncommon.*;
 import BL.Cards.Power.Common.BrokenConcentration;
 import BL.Cards.Power.Common.Infusion;
 import BL.Cards.Power.Common.MadEye;
+import BL.Cards.Power.Common.Tabadash;
 import BL.Cards.Power.Rare.BloodMist;
 import BL.Cards.Power.Rare.MadnessForm;
 import BL.Cards.Power.Rare.SanguineForm;
 import BL.Cards.Power.Uncommon.BalefulJourney;
 import BL.Cards.Power.Uncommon.BloodWalk;
 import BL.Cards.Power.Uncommon.DrawnInBlood;
+import BL.Cards.Power.Uncommon.ShadowForm;
 import BL.Cards.Skill.Common.*;
 import BL.Cards.Skill.Rare.BloodRitual;
 import BL.Cards.Skill.Rare.EvolveRitual;
 import BL.Cards.Skill.Rare.SanguinePool;
-import BL.Cards.Skill.Uncommon.BloodSign;
-import BL.Cards.Skill.Uncommon.BatForm;
-import BL.Cards.Skill.Uncommon.InTheShadows;
+import BL.Cards.Skill.Uncommon.*;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -88,6 +88,12 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new SanguineMadEye());
         BaseMod.addCard((AbstractCard)new SanguinePool());
         BaseMod.addCard((AbstractCard)new Shadow());
+        BaseMod.addCard((AbstractCard)new ShadowForm());
+        BaseMod.addCard((AbstractCard)new Shadows());
+        BaseMod.addCard((AbstractCard)new Shark());
+        BaseMod.addCard((AbstractCard)new Tabadash());
+        BaseMod.addCard((AbstractCard)new VampiricTutor());
+
 
     }
 
