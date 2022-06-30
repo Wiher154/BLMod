@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class Shark extends CustomCard {
     public static final String ID = "BLMod:Shark";
     public static final String NAME = "Shark";
-    public static final String DESCRIPTION = "Deal equal to your Block to all enemies NL When i'm discarded create Shadow in discard Exhaust";
+    public static final String DESCRIPTION = "Deal equal to your Block to all enemies NL When i'm discarded create Shadow in discard NL Exhaust";
     public static final String IMG_PATH = "img/cards/Shark.png";
 
     private static final int COST = 2;
@@ -33,7 +33,7 @@ public class Shark extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.baseDamage = p.currentBlock * this.magicNumber;
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        this.addToBot(new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Shark extends CustomCard {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.cardsToPreview.upgrade();
-            this.rawDescription = "Deal equal to your Block !M! times to all enemies NL When i'm discarded create Shadow+ in discard Exhaust";
+            this.rawDescription = "Deal equal to your Block !M! times to all enemies NL When i'm discarded create Shadow+ in discard NL Exhaust";
             this.initializeDescription();
 
         }

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 public class WihersDesire extends CustomCard {
     public static final String ID = "BLMod:WihersDesire";
@@ -41,18 +42,26 @@ public class WihersDesire extends CustomCard {
 
             if (list.size() > 0) {
                 Collections.shuffle(list);
-                for (int i = 0; i < this.magicNumber && i < list.size(); i++) {
+                for (int i = 0; i < this.magicNumber && i < list.size(); i++)
                     addToBot((AbstractGameAction) new BetterAutoPlayCardAction(list.get(i), p.drawPile));
-                }
             }
         } else {
-            CardGroup ara = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+            CardGroup cards_tolook = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
             for (AbstractCard card : p.drawPile.group)
                 if (card.type == AbstractCard.CardType.ATTACK)
-                    ara.addToTop(card);
+                    cards_tolook.addToTop(card);
 
             if(list.size() > 0) {
-                AbstractDungeon.gridSelectScreen.open(ara, this.magicNumber, true, "Select up to 3 cards to play");
+                AbstractDungeon.gridSelectScreen.open(cards_tolook, this.magicNumber, true, "Select up to 3 cards to play");
+                //this.tickDuration();
+                if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
+                    Iterator var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
+                    while(var1.hasNext())
+                        list.add((AbstractCard) var1.next());
+                    for (int i = 0; i < this.magicNumber && i < list.size(); i++)
+                        addToBot((AbstractGameAction) new BetterAutoPlayCardAction(list.get(i), p.drawPile));
+                }
+
             }
         }
     }

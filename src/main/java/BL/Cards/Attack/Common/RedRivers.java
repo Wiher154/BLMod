@@ -1,7 +1,6 @@
 package BL.Cards.Attack.Common;
 
 import BL.Abstract.BLBloodcostCard;
-import BL.Actions.RedRiversDamageHeal;
 import BL.BLCardEnum;
 import BL.Powers.Blood;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -17,7 +16,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class RedRivers extends BLBloodcostCard {
     public static final String ID = "BLMod:RedRivers";
     public static final String NAME = "Red Rivers";
-    public static final String DESCRIPTION = "Bloodcost: 2 NL Everyone Lose !D! HP NL Heal amount lost by enemies NL When i'm discarded gain !M! Blood";
+    public static final String DESCRIPTION = "Bloodcost: 2 NL Everyone Lose !D! HP NL Heal the same amount for each enemy NL When i'm discarded gain !M! Blood";
     public static final String IMG_PATH = "img/cards/Red rivers.png";
 
     private static final int COST = 0;
@@ -36,11 +35,10 @@ public class RedRivers extends BLBloodcostCard {
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m){
         addToBot((AbstractGameAction) new LoseHPAction(p,p,this.damage));
-        addToBot((AbstractGameAction)new RedRiversDamageHeal(this.damage));
-        /*for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters) {
+        for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot((AbstractGameAction) new LoseHPAction(mon,p,this.damage));
             addToBot((AbstractGameAction) new HealAction(p,p,this.damage));
-        }*/
+        }
 
     }
 

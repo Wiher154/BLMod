@@ -92,25 +92,21 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:Feast");*/
 
-        retVal.add("BLMod:ShadowForm");
-        retVal.add("BLMod:ShadowForm");
-        retVal.add("BLMod:ShadowForm");
+        retVal.add("BLMod:MadBite");
+        retVal.add("BLMod:MadBite");
+        retVal.add("BLMod:MadBite");
 
-        retVal.add("BLMod:Shadows");
-        retVal.add("BLMod:Shadows");
-        retVal.add("BLMod:Shadows");
+        retVal.add("BLMod:BloodRitual");
+        retVal.add("BLMod:BloodRitual");
+        retVal.add("BLMod:BloodRitual");
 
-        retVal.add("BLMod:Shark");
-        retVal.add("BLMod:Shark");
-        retVal.add("BLMod:Shark");
+        retVal.add("BLMod:RedRivers");
+        retVal.add("BLMod:RedRivers");
+        retVal.add("BLMod:RedRivers");
 
-        retVal.add("BLMod:Tabadash");
-        retVal.add("BLMod:Tabadash");
-        retVal.add("BLMod:Tabadash");
-
-        retVal.add("BLMod:VampiricTutor");
-        retVal.add("BLMod:VampiricTutor");
-        retVal.add("BLMod:VampiricTutor");
+        retVal.add("BLMod:WihersDesire");
+        retVal.add("BLMod:WihersDesire");
+        retVal.add("BLMod:WihersDesire");
 
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
