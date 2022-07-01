@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public abstract class BLBloodcostCard extends CustomCard {
     private int blood_cost = 0;
     private boolean isCostAllBlood;
+    private boolean isCostFixed;
+    private int bloodSpend;
 
     public BLBloodcostCard(String id, String name, String img, int cost, int bloodcost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target){
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -21,7 +23,8 @@ public abstract class BLBloodcostCard extends CustomCard {
         this.isCostAllBlood = false;
         if(this.blood_cost < 0)
             this.blood_cost = 0;
-
+        this.bloodSpend = 0;
+        this.isCostFixed = true;
     }
 
     public void SetBloodcostToAll() {
@@ -30,6 +33,8 @@ public abstract class BLBloodcostCard extends CustomCard {
     public void DontSpendAllBlood() {
         this.isCostAllBlood = false;
     }
+    public void SetNotFixedBloodCost() {this.isCostFixed = false;}
+    public int BloodSpend(){return this.bloodSpend;}
 
     public void upgradeBloodCost(int upgradeAmount) {
         this.blood_cost += upgradeAmount;
@@ -41,11 +46,16 @@ public abstract class BLBloodcostCard extends CustomCard {
     private void spendBlood(AbstractPlayer p){
         if(!this.isInAutoplay){
             AbstractPower pow = p.getPower("BLMod:Blood");
-            if(pow != null)
-                if (isCostAllBlood)
-                    addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, -pow.amount), -pow.amount));
-             else if (pow.amount >= this.blood_cost)
-                    addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, -this.blood_cost), -this.blood_cost));
+            if(pow != null) {
+                if (pow.amount >= this.blood_cost && !isCostAllBlood) {
+                    this.bloodSpend = this.blood_cost;
+                    addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new Blood((AbstractCreature) p, -this.blood_cost), -this.blood_cost));
+                } else {
+                    this.bloodSpend = pow.amount;
+                    addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new Blood((AbstractCreature) p, -pow.amount), -pow.amount));
+                }
+            }
+
 
         }
     }
@@ -62,6 +72,8 @@ public abstract class BLBloodcostCard extends CustomCard {
             return true;
         if (!canUse)
             return false;
+        if(!this.isCostFixed)
+            return true;
         AbstractPower pow = p.getPower("BLMod:Blood");
         if(pow != null)
             if (pow.amount >= this.blood_cost)

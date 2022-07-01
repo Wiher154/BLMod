@@ -6,27 +6,26 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.Iterator;
 
-public class DeckToTopDeckAction extends AbstractGameAction {
+public class DiscardToHandAction extends AbstractGameAction {
     private AbstractPlayer p;
 
-    public DeckToTopDeckAction(int amount) {
+    public DiscardToHandAction(int amount) {
         this.p = AbstractDungeon.player;
-        this.setValues(this.p, AbstractDungeon.player, amount);
+        this.setValues(this.p, this.p, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
     }
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED) {
-            AbstractDungeon.gridSelectScreen.open(this.p.drawPile, this.amount, "Select a card to add on top of deck.", false);
+            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.amount, "Select "+ this.amount +" cards to add to hand", false);
             this.tickDuration();
         } else {
             if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-                for(AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                    this.p.drawPile.removeCard(c);
-                    this.p.drawPile.addToTop(c);
+                for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                    this.p.discardPile.removeCard(c);
+                    this.p.hand.addToHand(c);
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();

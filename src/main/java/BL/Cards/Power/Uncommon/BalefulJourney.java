@@ -24,7 +24,7 @@ public class BalefulJourney extends CustomCard {
     public static final String DESCRIPTION = "Lose 3 HP. If you play it !M! times - kill all enemies";
     public static final String IMG_PATH = "img/cards/Baleful journey.png";
 
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final int MAGIC_NUMBER = 4;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = -1;
     private static final int HP_LOSE = 3;
