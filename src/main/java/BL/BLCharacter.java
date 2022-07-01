@@ -92,17 +92,29 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:Feast");*/
 
+        retVal.add("BLMod:BloodOath");
+        retVal.add("BLMod:BloodOath");
+        retVal.add("BLMod:BloodOath");
+
         retVal.add("BLMod:MadBite");
         retVal.add("BLMod:MadBite");
         retVal.add("BLMod:MadBite");
 
-        retVal.add("BLMod:BloodRitual");
-        retVal.add("BLMod:BloodRitual");
-        retVal.add("BLMod:BloodRitual");
+        retVal.add("BLMod:Tabadash");
+        retVal.add("BLMod:Tabadash");
+        retVal.add("BLMod:Tabadash");
 
-        retVal.add("BLMod:RedRivers");
-        retVal.add("BLMod:RedRivers");
-        retVal.add("BLMod:RedRivers");
+        retVal.add("BLMod:Madness");
+        retVal.add("BLMod:Madness");
+        retVal.add("BLMod:Madness");
+
+        retVal.add("BLMod:PainfulMemories");
+        retVal.add("BLMod:PainfulMemories");
+        retVal.add("BLMod:PainfulMemories");
+
+        retVal.add("BLMod:ConvertionRitual");
+        retVal.add("BLMod:ConvertionRitual");
+        retVal.add("BLMod:ConvertionRitual");
 
         retVal.add("BLMod:WihersDesire");
         retVal.add("BLMod:WihersDesire");

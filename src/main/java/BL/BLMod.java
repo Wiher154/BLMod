@@ -15,10 +15,7 @@ import BL.Cards.Power.Common.Tabadash;
 import BL.Cards.Power.Rare.BloodMist;
 import BL.Cards.Power.Rare.MadnessForm;
 import BL.Cards.Power.Rare.SanguineForm;
-import BL.Cards.Power.Uncommon.BalefulJourney;
-import BL.Cards.Power.Uncommon.BloodWalk;
-import BL.Cards.Power.Uncommon.DrawnInBlood;
-import BL.Cards.Power.Uncommon.ShadowForm;
+import BL.Cards.Power.Uncommon.*;
 import BL.Cards.Skill.Common.*;
 import BL.Cards.Skill.Rare.BloodRitual;
 import BL.Cards.Skill.Rare.EvolveRitual;
@@ -94,7 +91,10 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new Tabadash());
         BaseMod.addCard((AbstractCard)new VampiricTutor());
         BaseMod.addCard((AbstractCard)new WihersDesire());
-
+        BaseMod.addCard((AbstractCard)new Madness());
+        BaseMod.addCard((AbstractCard)new BloodOath());
+        BaseMod.addCard((AbstractCard)new ConvertionRitual());
+        BaseMod.addCard((AbstractCard)new PainfulMemories());
 
     }
 
