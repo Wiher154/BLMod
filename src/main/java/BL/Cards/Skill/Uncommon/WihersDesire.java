@@ -1,14 +1,16 @@
 package BL.Cards.Skill.Uncommon;
 
+import BL.Actions.BetterAutoPlayCardAction;
 import BL.Actions.PlayCardsFormDeckAction;
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class WihersDesire extends CustomCard {
@@ -20,31 +22,40 @@ public class WihersDesire extends CustomCard {
     private static final int COST = 7;
     private static final int MAGIC_NUMBER = 3;
     private static final int MAX_COST_OF_CARD = 1;
-    private boolean autoplay;
 
 
     public WihersDesire() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
-        this.autoplay = true;
 
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot((AbstractGameAction)new PlayCardsFormDeckAction(this.magicNumber,this.autoplay,MAX_COST_OF_CARD, CardType.ATTACK));
+        if(this.upgraded)
+            this.addToBot(new PlayCardsFormDeckAction(this.magicNumber, CardType.ATTACK));
+        else {
+            ArrayList<AbstractCard> list = new ArrayList<>();
+            for(AbstractCard c : p.drawPile.group)
+                if(c.type == CardType.ATTACK && c.cost <= MAX_COST_OF_CARD)
+                    list.add(c);
+            if(list.size() > 0) {
+                Collections.shuffle(list);
+                for(int i=0; i<this.magicNumber && i< list.size();i++)
+                    this.addToBot(new BetterAutoPlayCardAction(list.get(i), p.drawPile));
+            }
+        }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new WihersDesire();
+        return new WihersDesire();
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.autoplay = false;
             this.rawDescription = "Cost 1 less for each card you played this turn NL Play !M! attack cards from deck";
             this.initializeDescription();
 
@@ -54,6 +65,12 @@ public class WihersDesire extends CustomCard {
     public void triggerOnOtherCardPlayed(AbstractCard c) { calculateCostForTurn();
     }
     public void triggerWhenDrawn() { calculateCostForTurn();
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        boolean canUse = super.canUse(p,m);
+        this.calculateCostForTurn();
+        return canUse;
     }
 
 

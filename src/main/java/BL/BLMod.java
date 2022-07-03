@@ -21,6 +21,8 @@ import BL.Cards.Skill.Rare.BloodRitual;
 import BL.Cards.Skill.Rare.EvolveRitual;
 import BL.Cards.Skill.Rare.SanguinePool;
 import BL.Cards.Skill.Uncommon.*;
+import BL.Cards.Special.ScratchTemp;
+import BL.Cards.Special.TapTemp;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -32,16 +34,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @SpireInitializer
-public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber{
+public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber{
     public static final Color BL_BLACK_RED = CardHelper.getColor(117.0F, 10.0F, 10.0F);
     public static final Logger logger = LogManager.getLogger(BLMod.class.getName());
     public BLMod(){
-        logger.info("Constructor bruh");
         BaseMod.subscribe((ISubscriber) this);
 
     }
     public static void initialize(){
-        logger.info("i try to init bruh");
         BaseMod.addColor(BLCardEnum.BL, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, "img/attack_bl.png", "img/skill_bl.png", "img/power_bl.png", "img/blood_orb.png", "img/attack_bl_p.png", "img/skill_bl_p.png", "img/power_bl_p.png", "img/blood_orb_p.png", "img/orb_ui.png");
         BLMod main = new BLMod();
     }
@@ -95,18 +95,24 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new BloodOath());
         BaseMod.addCard((AbstractCard)new ConvertionRitual());
         BaseMod.addCard((AbstractCard)new PainfulMemories());
+        BaseMod.addCard((AbstractCard)new ScratchTemp());
+        BaseMod.addCard((AbstractCard)new TapTemp());
 
+    }
+    public void receiveEditKeywords(){
+        BaseMod.addKeyword("Blood",new String[]{"Blood", "blood"},"Use Blood to play Bloodcost cards");
+        BaseMod.addKeyword("Bloodcost",new String[]{"Bloodcost", "bloodcost"},"The amount of Blood needed to play this card");
     }
 
     public void receiveEditCharacters(){
         BaseMod.addCharacter((AbstractPlayer) new BLCharacter("Blood lord"), "img/Button.png", "img/portrait.png", BLClassEnum.BloodLord);
     }
     public void receiveEditRelics() {
-        logger.info("i edit relics bruh");
+
     }
 
     public void receivePostInitialize() {
-            logger.info("i post init bruh");
+
         }
 
 

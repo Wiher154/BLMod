@@ -2,7 +2,6 @@ package BL.Cards.Skill.Uncommon;
 
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
@@ -27,15 +26,17 @@ public class Madness extends CustomCard {
     public Madness() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
-        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot((AbstractGameAction)new DiscardAction(p,p,this.magicNumber, true));
-        this.addToBot((AbstractGameAction)new DrawCardAction(p,this.magicNumber));
-        if(this.upgraded)
-            this.addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(this.cardsToPreview,this.magicNumber));
+        this.addToBot(new DiscardAction(p,p,this.magicNumber, true));
+        this.addToBot(new DrawCardAction(p,this.magicNumber));
+        if(this.upgraded) {
+            AbstractCard c = new Madness();
+            c.upgrade();
+            this.addToBot(new MakeTempCardInDiscardAction(c, this.magicNumber));
+        }
     }
 
     @Override
@@ -49,8 +50,6 @@ public class Madness extends CustomCard {
             this.upgradeName();
             this.upgradeMagicNumber(UPGRADE_MAGIC_NUMBER_AMOUNT);
             this.upgradeBaseCost(UPGRADED_COST);
-            this.cardsToPreview = new Madness();
-            this.cardsToPreview.upgrade();
             this.rawDescription = "When i'm drawn play me for free NL Discard !M! at random NL Draw !M! NL Create !M! Madness+ in discard";
             this.initializeDescription();
 

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -41,16 +40,16 @@ public class RuinousRevelation extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         if(!this.isInAutoplay)
-            addToBot((AbstractGameAction)new DiscardAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber, false));
+            this.addToBot(new DiscardAction(p, p, this.magicNumber, false));
 
         if(AbstractDungeon.player instanceof BLCharacter)
             if(((BLCharacter) AbstractDungeon.player).getRuinousReveletionDiscardCount() == this.magicNumber)
-                addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo(p, this.damage*DAMAGE_MULTI_ON_MANUAL_CAST, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+                this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage*DAMAGE_MULTI_ON_MANUAL_CAST, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new RuinousRevelation();
+        return new RuinousRevelation();
     }
 
     @Override
@@ -63,7 +62,7 @@ public class RuinousRevelation extends CustomCard {
     }
 
     public void triggerOnManualDiscard(){
-        addToBot((AbstractGameAction)new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
 
         if(AbstractDungeon.player instanceof BLCharacter)
             ((BLCharacter) AbstractDungeon.player).changeRuinousReveletionDiscardCount(REVELATION_COUNT_INCREASE_ON_DISCARD);
@@ -76,9 +75,7 @@ public class RuinousRevelation extends CustomCard {
             return true;
         if (!canUse)
             return false;
-        if(p.hand.size() > DISCARD_COST)
-            return true;
-        return false;
+        return p.hand.size() > DISCARD_COST;
     }
 
     public void triggerOnGlowCheck() {

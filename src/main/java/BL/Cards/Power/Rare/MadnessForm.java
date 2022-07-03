@@ -3,14 +3,11 @@ package BL.Cards.Power.Rare;
 import BL.BLCardEnum;
 import BL.Powers.MadnessFormPow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class MadnessForm extends CustomCard {
     public static final String ID = "BLMod:MadnessForm";
@@ -34,15 +31,15 @@ public class MadnessForm extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!this.isInAutoplay)
-            addToBot((AbstractGameAction)new DiscardAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber, false));
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new MadnessFormPow((AbstractCreature)p, this.madness_amount), this.madness_amount));
+            this.addToBot(new DiscardAction(p, p, this.magicNumber, false));
+        this.addToBot(new ApplyPowerAction(p, p, new MadnessFormPow(p, this.madness_amount), this.madness_amount));
 
 
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new MadnessForm();
+        return new MadnessForm();
     }
 
     @Override
@@ -62,9 +59,7 @@ public class MadnessForm extends CustomCard {
             return true;
         if (!canUse)
             return false;
-        if(p.hand.size() > this.magicNumber)
-            return true;
-        return false;
+        return p.hand.size() > this.magicNumber;
     }
 
 }

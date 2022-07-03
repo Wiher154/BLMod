@@ -3,6 +3,8 @@ package BL;
 
 import BL.Cards.Attack.Common.Fang;
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.AbstractAnimation;
+import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -36,7 +38,7 @@ public class BLCharacter extends CustomPlayer {
     private int ruinousReveletionDiscardCount;
 
     public BLCharacter(String name) {
-        super(name, BLClassEnum.BloodLord, null, null, null, (String)null);
+        super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
     }
@@ -80,7 +82,7 @@ public class BLCharacter extends CustomPlayer {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        /*retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
@@ -90,35 +92,11 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Transfusion");
-        retVal.add("BLMod:Feast");*/
+        retVal.add("BLMod:Feast");
 
-        retVal.add("BLMod:BloodOath");
-        retVal.add("BLMod:BloodOath");
-        retVal.add("BLMod:BloodOath");
-
-        retVal.add("BLMod:MadBite");
-        retVal.add("BLMod:MadBite");
-        retVal.add("BLMod:MadBite");
-
-        retVal.add("BLMod:Tabadash");
-        retVal.add("BLMod:Tabadash");
-        retVal.add("BLMod:Tabadash");
-
-        retVal.add("BLMod:Madness");
-        retVal.add("BLMod:Madness");
-        retVal.add("BLMod:Madness");
-
-        retVal.add("BLMod:PainfulMemories");
-        retVal.add("BLMod:PainfulMemories");
-        retVal.add("BLMod:PainfulMemories");
-
-        retVal.add("BLMod:ConvertionRitual");
-        retVal.add("BLMod:ConvertionRitual");
-        retVal.add("BLMod:ConvertionRitual");
-
-        retVal.add("BLMod:WihersDesire");
-        retVal.add("BLMod:WihersDesire");
-        retVal.add("BLMod:WihersDesire");
+        /*retVal.add("BLMod:BalefulJourney");
+        retVal.add("BLMod:BalefulJourney");
+        retVal.add("BLMod:BalefulJourney");
 
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
@@ -128,7 +106,7 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:BloodRitual");
         retVal.add("BLMod:EvolveRitual");
         retVal.add("BLMod:Fang");
-        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");*/
 
         return retVal;
     }

@@ -1,8 +1,6 @@
 package BL.Powers;
 
-import BL.BLCharacter;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -29,7 +27,7 @@ public class BloodWalkPow extends AbstractPower{
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
         if (this.amount <= 0)
-            addToTop((AbstractGameAction) new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
@@ -37,8 +35,8 @@ public class BloodWalkPow extends AbstractPower{
             int blockAmount = 0;
             if(pow != null)
                 blockAmount = pow.amount;
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)AbstractDungeon.player, (AbstractCreature)AbstractDungeon.player, (AbstractPower)new Blood((AbstractCreature)AbstractDungeon.player, this.amount), this.amount));
-            addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature) AbstractDungeon.player, blockAmount+this.amount));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Blood(AbstractDungeon.player, this.amount), this.amount));
+            this.addToBot(new GainBlockAction( AbstractDungeon.player, blockAmount+this.amount));
         }
     }
 }

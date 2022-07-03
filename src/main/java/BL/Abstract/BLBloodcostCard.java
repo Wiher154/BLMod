@@ -2,17 +2,15 @@ package BL.Abstract;
 
 import BL.Powers.Blood;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class BLBloodcostCard extends CustomCard {
-    private int blood_cost = 0;
+    private int blood_cost;
     private boolean isCostAllBlood;
     private boolean isCostFixed;
     private int bloodSpend;
@@ -44,15 +42,16 @@ public abstract class BLBloodcostCard extends CustomCard {
     public abstract void useEffect(AbstractPlayer p, AbstractMonster m);
 
     private void spendBlood(AbstractPlayer p){
+        this.bloodSpend = 0;
         if(!this.isInAutoplay){
             AbstractPower pow = p.getPower("BLMod:Blood");
             if(pow != null) {
                 if (pow.amount >= this.blood_cost && !isCostAllBlood) {
                     this.bloodSpend = this.blood_cost;
-                    addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new Blood((AbstractCreature) p, -this.blood_cost), -this.blood_cost));
+                    addToBot(new ApplyPowerAction(p, p, new Blood(p, -this.blood_cost), -this.blood_cost));
                 } else {
                     this.bloodSpend = pow.amount;
-                    addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new Blood((AbstractCreature) p, -pow.amount), -pow.amount));
+                    addToBot(new ApplyPowerAction(p, p, new Blood(p, -pow.amount), -pow.amount));
                 }
             }
 
@@ -72,12 +71,11 @@ public abstract class BLBloodcostCard extends CustomCard {
             return true;
         if (!canUse)
             return false;
-        if(!this.isCostFixed)
+        if(!this.isCostFixed || this.isCostAllBlood)
             return true;
         AbstractPower pow = p.getPower("BLMod:Blood");
         if(pow != null)
-            if (pow.amount >= this.blood_cost)
-                return true;
+            return pow.amount >= this.blood_cost;
         return false;
     }
 

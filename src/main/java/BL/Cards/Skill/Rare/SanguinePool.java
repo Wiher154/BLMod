@@ -2,16 +2,13 @@ package BL.Cards.Skill.Rare;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import BL.Powers.Blood;
 import BL.Powers.SanguinePoolPow;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class SanguinePool extends BLBloodcostCard {
     public static final String ID = "BLMod:SanguinePool";
@@ -36,14 +33,14 @@ public class SanguinePool extends BLBloodcostCard {
         int hpLossAmount = (int)Math.ceil((double) p.currentHealth * CURRENT_HP_LOSS_MULTI);
         if(hpLossAmount < MINIMAL_HP_LOSS)
             hpLossAmount = MINIMAL_HP_LOSS;
-        addToBot((AbstractGameAction)new LoseHPAction(p,p,hpLossAmount));
+        this.addToBot(new LoseHPAction(p,p,hpLossAmount));
 
-        addToBot((AbstractGameAction)new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, (AbstractPower)new SanguinePoolPow(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SanguinePoolPow(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new SanguinePool();
+        return new SanguinePool();
     }
 
     @Override

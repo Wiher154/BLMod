@@ -7,10 +7,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class BrokenConcentration extends CustomCard {
@@ -22,7 +20,7 @@ public class BrokenConcentration extends CustomCard {
     private static final int COST = 1;
     private static final int MAGIC_NUMBER = 1;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 1;
-    private static final int AFTERDISCARD_DRAW_AMOUNT = 1;
+    private static final int AFTER_DISCARD_DRAW_AMOUNT = 1;
 
 
     public BrokenConcentration() {
@@ -32,7 +30,7 @@ public class BrokenConcentration extends CustomCard {
 
     private void useEffect(AbstractPlayer p) {
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new WeakPower((AbstractCreature)mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override
@@ -42,7 +40,7 @@ public class BrokenConcentration extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BrokenConcentration();
+        return new BrokenConcentration();
     }
 
     @Override
@@ -58,6 +56,6 @@ public class BrokenConcentration extends CustomCard {
     public void triggerOnManualDiscard() {
         this.useEffect(AbstractDungeon.player);
         if(this.upgraded)
-            addToBot((AbstractGameAction)new DrawCardAction(AFTERDISCARD_DRAW_AMOUNT));
+            this.addToBot(new DrawCardAction(AFTER_DISCARD_DRAW_AMOUNT));
     }
 }

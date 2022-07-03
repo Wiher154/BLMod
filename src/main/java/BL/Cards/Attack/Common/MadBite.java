@@ -10,9 +10,7 @@ import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class MadBite extends CustomCard {
     public static final String ID = "BLMod:MadBite";
@@ -38,14 +36,14 @@ public class MadBite extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!this.isInAutoplay)
-            addToBot((AbstractGameAction)new DiscardAction((AbstractCreature)p, (AbstractCreature)p, 1, false));
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, this.magicNumber), this.magicNumber));
+            this.addToBot(new DiscardAction(p, p, DISCARD_COST, false));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        this.addToBot(new ApplyPowerAction(p, p, new Blood(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new MadBite();
+        return new MadBite();
     }
 
     @Override
@@ -63,9 +61,7 @@ public class MadBite extends CustomCard {
             return true;
         if (!canUse)
             return false;
-         if(p.hand.size() > DISCARD_COST)
-             return true;
-        return false;
+        return p.hand.size() > DISCARD_COST;
     }
 
 }

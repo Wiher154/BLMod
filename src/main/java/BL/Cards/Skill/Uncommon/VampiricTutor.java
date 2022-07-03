@@ -3,11 +3,9 @@ package BL.Cards.Skill.Uncommon;
 import BL.Actions.DeckToTopDeckAction;
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class VampiricTutor extends CustomCard {
@@ -28,13 +26,13 @@ public class VampiricTutor extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new DeckToTopDeckAction(CARDS_TO_TUTOR_AMOUNT));
-        addToBot((AbstractGameAction)new LoseHPAction(p,p,this.magicNumber));
+        this.addToBot(new DeckToTopDeckAction(CARDS_TO_TUTOR_AMOUNT));
+        this.addToBot(new LoseHPAction(p,p,this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new VampiricTutor();
+        return new VampiricTutor();
     }
 
     @Override

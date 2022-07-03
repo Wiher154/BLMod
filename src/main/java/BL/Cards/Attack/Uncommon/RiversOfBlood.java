@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class RiversOfBlood extends BLBloodcostCard {
     public static final String ID = "BLMod:RiversOfBlood";
@@ -37,25 +36,20 @@ public class RiversOfBlood extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
-        int bloodSpend = 0;
-        if(pow != null)
-            bloodSpend = pow.amount;
+        int totalDamage = this.damage + bloodSpendDamageMulti*this.BloodSpend();
 
-        int totalDamage = this.damage + bloodSpendDamageMulti*bloodSpend;
-
-        addToBot(new DamageAllEnemiesAction(p, totalDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
+        this.addToBot(new DamageAllEnemiesAction(p, totalDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
 
         for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters)
             if(mon.currentBlock+mon.currentHealth <= totalDamage && !mon.isEscaping && !mon.isDying)
-                addToBot((AbstractGameAction)new HealAction(p,p,this.magicNumber));
+                this.addToBot(new HealAction(p,p,this.magicNumber));
 
 
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new RiversOfBlood();
+        return new RiversOfBlood();
     }
 
     @Override

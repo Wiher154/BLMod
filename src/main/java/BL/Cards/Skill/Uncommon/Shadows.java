@@ -3,12 +3,10 @@ package BL.Cards.Skill.Uncommon;
 import BL.BLCardEnum;
 import BL.Cards.Skill.Common.Shadow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Shadows extends CustomCard {
@@ -34,15 +32,15 @@ public class Shadows extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(this.cardsToPreview,this.magicNumber));
+        this.addToBot(new GainBlockAction(p, this.block));
+        this.addToBot(new GainBlockAction(p, this.block));
+        this.addToBot(new GainBlockAction(p, this.block));
+        this.addToBot(new MakeTempCardInDiscardAction(this.cardsToPreview,this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Shadows();
+        return new Shadows();
     }
 
     @Override
@@ -53,7 +51,6 @@ public class Shadows extends CustomCard {
             this.cardsToPreview.upgrade();
             this.rawDescription = "Block !B! NL Block !B! NL Block !B! NL Create !M! Shadow+ in Discard NL Exhaust";
             this.initializeDescription();
-
         }
     }
 }

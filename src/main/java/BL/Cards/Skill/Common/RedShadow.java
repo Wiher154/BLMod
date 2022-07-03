@@ -2,7 +2,6 @@ package BL.Cards.Skill.Common;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,12 +27,12 @@ public class RedShadow extends BLBloodcostCard {
 
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m){
-        addToBot((AbstractGameAction) new GainBlockAction(p,p,this.block));
+        this.addToBot(new GainBlockAction(p,p,this.block));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new RedShadow();
+        return new RedShadow();
     }
 
     @Override

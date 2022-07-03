@@ -36,10 +36,9 @@ public class ISeeYou extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,(AbstractPower)new VulnerablePower((AbstractCreature)m,this.magicNumber,false), this.magicNumber));
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p,(AbstractPower)new WeakPower((AbstractCreature)m,this.magicNumber,false),this.magicNumber));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber,false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m,this.magicNumber,false),this.magicNumber));
     }
 
     @Override

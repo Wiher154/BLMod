@@ -2,12 +2,10 @@ package BL.Cards.Skill.Common;
 
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class VeinFiltering extends CustomCard {
@@ -28,13 +26,13 @@ public class VeinFiltering extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new DrawCardAction(this.magicNumber));
-        addToBot((AbstractGameAction)new DiscardAction((AbstractCreature)p,(AbstractCreature)p,this.magicNumber,false ));
+        this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new DiscardAction(p,p,this.magicNumber,false ));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new VeinFiltering();
+        return new VeinFiltering();
     }
 
     @Override

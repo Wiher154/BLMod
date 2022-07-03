@@ -3,13 +3,10 @@ package BL.Cards.Power.Uncommon;
 import BL.BLCardEnum;
 import BL.Powers.BloodWalkPow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BloodWalk extends CustomCard {
     public static final String ID = "BLMod:BloodWalk";
@@ -29,12 +26,12 @@ public class BloodWalk extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new BloodWalkPow((AbstractCreature) p, this.magicNumber), this.magicNumber));
+        this.addToBot( new ApplyPowerAction(p, p, new BloodWalkPow(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BloodWalk();
+        return new BloodWalk();
     }
 
     @Override

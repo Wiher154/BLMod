@@ -2,8 +2,8 @@ package BL.Cards.Skill.Common;
 
 import BL.BLCardEnum;
 import BL.Cards.Attack.Common.Scratch;
+import BL.Cards.Special.ScratchTemp;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,20 +23,19 @@ public class Flurry extends CustomCard {
     public Flurry (){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, BLCardEnum.BL, AbstractCard.CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
-        this.cardsToPreview = new Scratch();
+        this.cardsToPreview = new ScratchTemp();
         this.exhaust = true;
-
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c = this.cardsToPreview.makeStatEquivalentCopy();
-        addToBot((AbstractGameAction)new MakeTempCardInHandAction(c,this.magicNumber));
+        this.addToBot(new MakeTempCardInHandAction(c,this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Flurry();
+        return new Flurry();
     }
 
     @Override

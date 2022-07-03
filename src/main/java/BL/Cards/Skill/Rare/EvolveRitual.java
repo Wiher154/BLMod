@@ -2,11 +2,9 @@ package BL.Cards.Skill.Rare;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -45,7 +43,7 @@ public class EvolveRitual extends BLBloodcostCard {
             }
         }
         if (!possibleCards.isEmpty()) {
-            theCard = (AbstractCard)possibleCards.get(AbstractDungeon.miscRng.random(0, possibleCards.size() - 1));
+            theCard = possibleCards.get(AbstractDungeon.miscRng.random(0, possibleCards.size() - 1));
             theCard.upgrade();
             AbstractDungeon.player.bottledCardUpgradeCheck(theCard);
         }
@@ -58,7 +56,7 @@ public class EvolveRitual extends BLBloodcostCard {
     @Override
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot((AbstractGameAction)new LoseHPAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber));
+        this.addToBot(new LoseHPAction(p, p, this.magicNumber));
         evolveCardEffect();
         if(this.upgraded)
             evolveCardEffect();
@@ -66,7 +64,7 @@ public class EvolveRitual extends BLBloodcostCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new EvolveRitual();
+        return new EvolveRitual();
     }
 
     @Override

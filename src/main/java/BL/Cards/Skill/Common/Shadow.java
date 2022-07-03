@@ -2,12 +2,10 @@ package BL.Cards.Skill.Common;
 
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Shadow extends CustomCard {
@@ -33,13 +31,13 @@ public class Shadow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(this.cardsToPreview,this.magicNumber));
+        this.addToBot(new GainBlockAction(p, this.block));
+        this.addToBot(new MakeTempCardInDiscardAction(this.cardsToPreview,this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Shadow();
+        return new Shadow();
     }
 
     @Override
