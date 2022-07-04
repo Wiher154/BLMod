@@ -2,19 +2,12 @@ package BL.Cards.Skill.Uncommon;
 
 
 import BL.BLCardEnum;
-import BL.Powers.Blood;
 import BL.Powers.EvadeAttackPow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BatForm extends CustomCard {
     public static final String ID = "BLMod:BatForm";
@@ -36,12 +29,12 @@ public class BatForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new EvadeAttackPow((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new EvadeAttackPow(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BatForm();
+        return new BatForm();
     }
 
     @Override

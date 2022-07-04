@@ -3,12 +3,9 @@ package BL.Cards.Skill.Common;
 
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModCardTags;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Shade extends CustomCard {
@@ -25,7 +22,7 @@ public class Shade extends CustomCard {
 
 
     public Shade() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, BLCardEnum.BL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, BLCardEnum.BL, CardRarity.BASIC, CardTarget.SELF);
         this.baseBlock = this.block = BLOCK;
         this.exhaust = true;
         this.tags.add(AbstractCard.CardTags.STARTER_DEFEND);
@@ -34,12 +31,12 @@ public class Shade extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
+        this.addToBot(new GainBlockAction(p, this.block));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Shade();
+        return new Shade();
     }
 
     @Override

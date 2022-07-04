@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
@@ -40,17 +39,12 @@ public class SanguineMadEye extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
-        int bloodSpend = 0;
-        if(pow != null)
-            bloodSpend = pow.amount;
-
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage * bloodSpend, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage * this.BloodSpend(), this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new SanguineMadEye();
+        return new SanguineMadEye();
     }
 
     @Override
@@ -64,8 +58,8 @@ public class SanguineMadEye extends BLBloodcostCard {
 
     public void triggerOnManualDiscard(){
         AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-        addToBot((AbstractGameAction)new ApplyPowerAction(mon, AbstractDungeon.player, (AbstractPower)new FrailPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
-        addToBot((AbstractGameAction)new ApplyPowerAction(mon, AbstractDungeon.player, (AbstractPower)new VulnerablePower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
-        addToBot((AbstractGameAction)new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, (AbstractPower)new Blood(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new FrailPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Blood(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }
 }

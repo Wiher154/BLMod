@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BetterAutoPlayCardAction extends AbstractGameAction{
     private AbstractCard card;
-
     private CardGroup group;
 
     public BetterAutoPlayCardAction(AbstractCard card, CardGroup group) {

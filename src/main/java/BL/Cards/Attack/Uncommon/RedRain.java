@@ -3,7 +3,6 @@ package BL.Cards.Attack.Uncommon;
 import BL.BLCardEnum;
 import BL.Powers.Blood;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class RedRain extends CustomCard {
     public static final String ID = "BLMod:RedRain";
@@ -20,7 +18,6 @@ public class RedRain extends CustomCard {
     public static final String IMG_PATH = "img/cards/Red rain.png";
 
     private static final int COST = 0;
-
     private static final int MAGIC_NUMBER = 9;
     private static final int DISCARD_HP_LOSS = 3;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 2;
@@ -38,16 +35,16 @@ public class RedRain extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction) new LoseHPAction(p,p,this.magicNumber));
+        this.addToBot( new LoseHPAction(p,p,this.magicNumber));
         for(AbstractMonster mon: AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot((AbstractGameAction) new LoseHPAction(mon,p,this.magicNumber));
+            this.addToBot(new LoseHPAction(mon,p,this.magicNumber));
         }
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new Blood((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new Blood(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new RedRain();
+        return new RedRain();
     }
 
     @Override
@@ -64,7 +61,7 @@ public class RedRain extends CustomCard {
     public void triggerOnManualDiscard() {
         AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
         if(mon != null)
-            addToBot((AbstractGameAction) new LoseHPAction(mon,AbstractDungeon.player,this.discard_hp_loss));
+            this.addToBot( new LoseHPAction(mon,AbstractDungeon.player,this.discard_hp_loss));
     }
 
 }

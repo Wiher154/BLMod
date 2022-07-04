@@ -2,8 +2,9 @@ package BL.Cards.Skill.Uncommon;
 
 import BL.Actions.DiscardToHandAction;
 import BL.BLCardEnum;
+import BL.Powers.PainfulMemoriesPow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,20 +25,21 @@ public class PainfulMemories extends CustomCard {
 
 
     public PainfulMemories() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
         this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot((AbstractGameAction)new DiscardToHandAction(DRAW_FROM_DISCARD_AMOUNT));
-        this.addToBot((AbstractGameAction)new DiscardAction(p,p,RANDOM_DISCARD_AMOUNT,true));
+        this.addToBot(new DiscardToHandAction(DRAW_FROM_DISCARD_AMOUNT));
+        this.addToBot(new DiscardAction(p,p,RANDOM_DISCARD_AMOUNT,true));
+        this.addToBot(new ApplyPowerAction(p,p,new PainfulMemoriesPow(p,this.magicNumber),this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new PainfulMemories();
+        return new PainfulMemories();
     }
 
     @Override
@@ -54,8 +56,6 @@ public class PainfulMemories extends CustomCard {
         boolean canUse = super.canUse(p, m);
         if(!canUse)
             return false;
-        if(AbstractDungeon.player.discardPile.size() >= DRAW_FROM_DISCARD_AMOUNT)
-            return true;
-        return false;
+        return AbstractDungeon.player.discardPile.size() >= DRAW_FROM_DISCARD_AMOUNT;
     }
 }

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class DarkTide extends CustomCard {
@@ -32,15 +31,15 @@ public class DarkTide extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new DamageRandomEnemyAction(new DamageInfo((AbstractCreature)p, p.currentBlock+this.block, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        this.addToTop(new GainBlockAction(p, this.block));
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(p, p.currentBlock+this.block, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         if(this.upgraded)
-            addToBot((AbstractGameAction)new DrawCardAction((AbstractCreature)p, this.magicNumber));
+            this.addToBot(new DrawCardAction(p, this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new DarkTide();
+        return new DarkTide();
     }
 
     @Override

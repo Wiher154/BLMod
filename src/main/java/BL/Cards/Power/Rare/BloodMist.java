@@ -3,19 +3,11 @@ package BL.Cards.Power.Rare;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import BL.Powers.Blood;
 import BL.Powers.BloodMistPow;
-import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BloodMist extends BLBloodcostCard {
     public static final String ID = "BLMod:BloodMist";
@@ -37,12 +29,12 @@ public class BloodMist extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new BloodMistPow((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new BloodMistPow(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BloodMist();
+        return new BloodMist();
     }
 
     @Override

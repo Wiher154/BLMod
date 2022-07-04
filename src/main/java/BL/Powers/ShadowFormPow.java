@@ -1,7 +1,6 @@
 package BL.Powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -28,11 +27,11 @@ public class ShadowFormPow extends AbstractPower {
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
         if (this.amount <= 0)
-            addToTop((AbstractGameAction) new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 
     public void onGainedBlock(float blockAmount) {
-        addToBot((AbstractGameAction) new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, (AbstractPower) new DexterityPower(AbstractDungeon.player, this.amount), this.amount));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, this.amount), this.amount));
     }
 
 

@@ -3,15 +3,11 @@ package BL.Cards.Power.Uncommon;
 import BL.BLCardEnum;
 import BL.Powers.ShadowFormPow;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.BarricadePower;
-import com.megacrit.cardcrawl.powers.BlurPower;
 
 public class ShadowForm extends CustomCard {
     public static final String ID = "BLMod:ShadowForm";
@@ -31,9 +27,9 @@ public class ShadowForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new ShadowFormPow((AbstractCreature) p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new ShadowFormPow(p, this.magicNumber), this.magicNumber));
         if(this.upgraded) {
-            addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new BarricadePower(p)));
+            this.addToBot( new ApplyPowerAction(p, p, new BarricadePower(p)));
         }
 
 
@@ -41,7 +37,7 @@ public class ShadowForm extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new ShadowForm();
+        return new ShadowForm();
     }
 
     @Override

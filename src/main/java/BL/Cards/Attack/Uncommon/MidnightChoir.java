@@ -4,12 +4,12 @@ import BL.Abstract.BLBloodcostCard;
 import BL.Actions.BloodBarrierBlock;
 import BL.BLCardEnum;
 import BL.Cards.Skill.Common.Tap;
+import BL.Cards.Special.TapTemp;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -29,17 +29,18 @@ public class MidnightChoir extends BLBloodcostCard {
     public MidnightChoir() {
         super(ID, NAME, IMG_PATH, COST, BLOOD_COST, DESCRIPTION, CardType.ATTACK, BLCardEnum.BL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseDamage = this.damage = DAMAGE;
-        this.cardsToPreview = new Tap();
+        this.cardsToPreview = new TapTemp();
+        this.cardsToPreview.exhaust = true;
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
-            addToBot((AbstractGameAction)new BloodBarrierBlock((AbstractCreature)mo, new DamageInfo((AbstractCreature)p, this.damage), AbstractGameAction.AttackEffect.NONE,0));
+            this.addToBot(new BloodBarrierBlock(mo, new DamageInfo(p, this.damage), AbstractGameAction.AttackEffect.NONE,0));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new MidnightChoir();
+        return new MidnightChoir();
     }
 
     @Override
@@ -55,6 +56,6 @@ public class MidnightChoir extends BLBloodcostCard {
 
     public void triggerOnManualDiscard() {
         AbstractCard c = this.cardsToPreview.makeStatEquivalentCopy();
-        addToBot((AbstractGameAction)new MakeTempCardInHandAction(c,DISCARD_CREATE_AMOUNT));
+        addToBot(new MakeTempCardInHandAction(c,DISCARD_CREATE_AMOUNT));
     }
 }

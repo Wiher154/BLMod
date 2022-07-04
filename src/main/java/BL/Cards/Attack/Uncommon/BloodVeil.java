@@ -3,18 +3,13 @@ package BL.Cards.Attack.Uncommon;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class BloodVeil extends BLBloodcostCard {
     public static final String ID = "BLMod:BloodVeil";
@@ -37,13 +32,13 @@ public class BloodVeil extends BLBloodcostCard {
 
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m){
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.block));
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new ArtifactPower((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        this.addToBot(new GainBlockAction(p, this.block));
+        this.addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BloodVeil();
+        return new BloodVeil();
     }
 
     @Override
@@ -56,10 +51,7 @@ public class BloodVeil extends BLBloodcostCard {
     }
 
     public void triggerOnManualDiscard() {
-        AbstractRoom room = AbstractDungeon.getCurrRoom();
-        MonsterGroup monGr = room.monsters;
-
-        this.useEffect(AbstractDungeon.player,monGr.getRandomMonster());
+        this.useEffect(AbstractDungeon.player,AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true));
     }
 
 

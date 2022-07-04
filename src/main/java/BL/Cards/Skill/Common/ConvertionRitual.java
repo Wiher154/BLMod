@@ -2,7 +2,6 @@ package BL.Cards.Skill.Common;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,12 +31,12 @@ public class ConvertionRitual extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot((AbstractGameAction)new GainEnergyAction(this.BloodSpend()));
+        this.addToBot(new GainEnergyAction(this.BloodSpend()));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new ConvertionRitual();
+        return new ConvertionRitual();
     }
 
     @Override

@@ -3,13 +3,10 @@ package BL.Cards.Power.Rare;
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
 import BL.Powers.SanguineFormPow;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class SanguineForm extends BLBloodcostCard {
     public static final String ID = "BLMod:SanguineForm";
@@ -31,12 +28,12 @@ public class SanguineForm extends BLBloodcostCard {
     }
 
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new SanguineFormPow((AbstractCreature)p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new SanguineFormPow(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new SanguineForm();
+        return new SanguineForm();
     }
 
     @Override

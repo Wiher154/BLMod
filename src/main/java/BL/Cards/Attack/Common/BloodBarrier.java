@@ -4,16 +4,11 @@ package BL.Cards.Attack.Common;
 import BL.Abstract.BLBloodcostCard;
 import BL.Actions.BloodBarrierBlock;
 import BL.BLCardEnum;
-import BL.Powers.Blood;
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 
 
@@ -42,14 +37,14 @@ public class BloodBarrier extends BLBloodcostCard {
 
     @Override
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        DamageInfo var1 = new DamageInfo((AbstractCreature)p, this.damage);
-        addToBot((AbstractGameAction)new BloodBarrierBlock((AbstractCreature)m, var1, AbstractGameAction.AttackEffect.NONE,this.BloodSpend()*this.magicNumber));
+        DamageInfo var1 = new DamageInfo(p, this.damage);
+        this.addToBot(new BloodBarrierBlock(m, var1, AbstractGameAction.AttackEffect.NONE,this.BloodSpend()*this.magicNumber));
 
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BloodBarrier();
+        return new BloodBarrier();
     }
 
     @Override

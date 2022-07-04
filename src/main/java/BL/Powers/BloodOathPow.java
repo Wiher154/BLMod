@@ -1,7 +1,6 @@
 package BL.Powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -30,16 +29,13 @@ public class BloodOathPow extends AbstractPower {
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
         if (this.amount <= 0)
-            addToTop((AbstractGameAction) new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            this.addToTop( new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
-        if(isPlayer) {
-            AbstractPlayer p = AbstractDungeon.player;
-            addToBot((AbstractGameAction)new LoseHPAction(p,p,this.amount));
-            addToBot((AbstractGameAction)new DrawCardAction(p,this.amount));
-            addToBot((AbstractGameAction)new ApplyPowerAction(p,p,(AbstractPower)new Blood(p,this.amount),this.amount ));
-        }
-
+    public void atStartOfTurn() {
+        AbstractPlayer p = AbstractDungeon.player;
+        this.addToBot(new LoseHPAction(p,p,this.amount));
+        this.addToBot(new DrawCardAction(p,this.amount));
+        this.addToBot(new ApplyPowerAction(p,p,new Blood(p,this.amount),this.amount ));
     }
 }

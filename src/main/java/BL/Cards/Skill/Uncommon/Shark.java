@@ -38,7 +38,7 @@ public class Shark extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Shark();
+        return new Shark();
     }
 
     @Override
@@ -54,6 +54,6 @@ public class Shark extends CustomCard {
     }
 
     public void triggerOnManualDiscard() {
-        this.addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(this.cardsToPreview,CARDS_CREATED_ON_DISCARD));
+        this.addToBot(new MakeTempCardInDiscardAction(this.cardsToPreview,CARDS_CREATED_ON_DISCARD));
     }
 }

@@ -1,4 +1,4 @@
-package BL.Cards.Skill.Common;
+package BL.Cards.Special;
 
 import BL.BLCardEnum;
 import BL.Powers.Blood;
@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Tap extends CustomCard {
-    public static final String ID = "BLMod:Tap";
+public class TapTemp extends CustomCard {
+    public static final String ID = "BLMod:TapTemp";
     public static final String NAME = "Tap";
-    public static final String DESCRIPTION = "Lose !M! HP NL Gain !M! Blood";
+    public static final String DESCRIPTION = "Lose !M! HP NL Gain !M! Blood NL Exhaust";
     public static final String IMG_PATH = "img/cards/Tap.png";
 
     private static final int COST = 0;
@@ -22,10 +22,10 @@ public class Tap extends CustomCard {
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 2;
 
 
-    public Tap() {
+    public TapTemp() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, CardRarity.COMMON, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
-
+        this.exhaust = true;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Tap extends CustomCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new Tap();
+        return new TapTemp();
     }
 
     @Override

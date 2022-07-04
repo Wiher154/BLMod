@@ -32,7 +32,7 @@ public class MadnessFormPow extends AbstractPower{
 
     public void onDrawOrDiscard(){
         AbstractMonster mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-        addToBot((AbstractGameAction)new DamageAction((AbstractCreature)mon, new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new DamageAction(mon, new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
     }
 
 

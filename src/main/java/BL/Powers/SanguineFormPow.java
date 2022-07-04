@@ -1,12 +1,10 @@
 package BL.Powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class SanguineFormPow extends AbstractPower {
@@ -28,10 +26,10 @@ public class SanguineFormPow extends AbstractPower {
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
         if (this.amount <= 0)
-            addToTop((AbstractGameAction) new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if(power.ID.equals("BLMod:Blood") && power.amount > 0)
-            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)source, (AbstractCreature)source, (AbstractPower)new StrengthPower((AbstractCreature)source, power.amount), power.amount));
+            this.addToBot(new ApplyPowerAction(source, source, new StrengthPower(source, power.amount), power.amount));
     }
 }

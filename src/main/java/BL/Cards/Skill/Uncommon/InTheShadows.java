@@ -2,11 +2,9 @@ package BL.Cards.Skill.Uncommon;
 
 import BL.BLCardEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class InTheShadows extends CustomCard {
@@ -33,12 +31,12 @@ public class InTheShadows extends CustomCard {
             if(c.type == CardType.SKILL)
                 exhastedSkillCount++;
 
-        addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)p, this.magicNumber*exhastedSkillCount));
+        this.addToBot(new GainBlockAction(p, this.magicNumber*exhastedSkillCount));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new InTheShadows();
+        return new InTheShadows();
     }
 
     @Override

@@ -3,11 +3,9 @@ package BL.Cards.Skill.Uncommon;
 
 import BL.Abstract.BLBloodcostCard;
 import BL.BLCardEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BloodSign extends BLBloodcostCard {
@@ -29,12 +27,12 @@ public class BloodSign extends BLBloodcostCard {
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new DrawCardAction((AbstractCreature)p, this.magicNumber));
+        this.addToBot(new DrawCardAction(p, this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new BloodSign();
+        return new BloodSign();
     }
 
     @Override
@@ -50,7 +48,7 @@ public class BloodSign extends BLBloodcostCard {
     }
 
     public void triggerOnManualDiscard() {
-        addToBot((AbstractGameAction)new DrawCardAction(AFTERDISCARD_DRAW_AMOUNT));
+        this.addToBot(new DrawCardAction(AFTERDISCARD_DRAW_AMOUNT));
     }
 
 
