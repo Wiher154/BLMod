@@ -12,8 +12,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -28,7 +30,7 @@ public class BLCharacter extends CustomPlayer {
     public static final String CHAR_IMAGE = "img/char_bl.png";
     public static final String NAME = "Test Blood Lord";
     public static final String DESCRIPTION = "Here comes description";
-    public static final int STARTING_HP = 43;
+    public static final int STARTING_HP = 23;
     public static final int MAX_HP = 43;
     public static final int ORB_SLOTS = 0;
     public static final int STARTING_GOLD = 154;
@@ -36,11 +38,13 @@ public class BLCharacter extends CustomPlayer {
     private static final int ASCENSION_MAX_HP_LOSS = 5;
 
     private int ruinousReveletionDiscardCount;
+    private int essenceAmount;
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
+        this.essenceAmount = 0;
     }
 
     public Color getSlashAttackColor() {
@@ -53,7 +57,7 @@ public class BLCharacter extends CustomPlayer {
         return new AbstractGameAction.AttackEffect[] { AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.BLUNT_HEAVY };
     }
     public AbstractCard getStartCardForEvent() {
-        return (AbstractCard)new Fang();
+        return new Fang();
     }
 
     public BitmapFont getEnergyNumFont() {
@@ -65,7 +69,7 @@ public class BLCharacter extends CustomPlayer {
     }
 
     public AbstractPlayer newInstance() {
-        return (AbstractPlayer) new BLCharacter(this.name);
+        return new BLCharacter(this.name);
     }
 
     public CharSelectInfo getLoadout() {
@@ -82,7 +86,7 @@ public class BLCharacter extends CustomPlayer {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("BLMod:Fang");
+        /*retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
@@ -92,11 +96,15 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Transfusion");
-        retVal.add("BLMod:Feast");
+        retVal.add("BLMod:Feast");*/
 
-        /*retVal.add("BLMod:BalefulJourney");
-        retVal.add("BLMod:BalefulJourney");
-        retVal.add("BLMod:BalefulJourney");
+        retVal.add("BLMod:Stab");
+        retVal.add("BLMod:Stab");
+        retVal.add("BLMod:Stab");
+
+        retVal.add("BLMod:BloodAvatar");
+        retVal.add("BLMod:BloodAvatar");
+        retVal.add("BLMod:BloodAvatar");
 
         retVal.add("BLMod:VeinFiltering");
         retVal.add("BLMod:VeinFiltering");
@@ -106,7 +114,7 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:BloodRitual");
         retVal.add("BLMod:EvolveRitual");
         retVal.add("BLMod:Fang");
-        retVal.add("BLMod:Fang");*/
+        retVal.add("BLMod:Fang");
 
         return retVal;
     }
@@ -144,6 +152,7 @@ public class BLCharacter extends CustomPlayer {
     public void onVictory() {
         super.onVictory();
         this.ruinousReveletionDiscardCount = 0;
+        this.calculateEssence();
     }
 
     public int getRuinousReveletionDiscardCount(){
@@ -152,7 +161,19 @@ public class BLCharacter extends CustomPlayer {
     public void changeRuinousReveletionDiscardCount(int changeValue){
         this.ruinousReveletionDiscardCount += changeValue;
     }
+    public int getEssenceAmount(){
+        return this.essenceAmount;
+    }
+    private void calculateEssence(){
+        int temp = 3 * AbstractDungeon.getCurrRoom().monsters.monsters.size();
+        AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
+        if(pow != null)
+            temp += pow.amount;
+        if(temp < 0)
+            temp = 0;
+        this.essenceAmount += temp;
 
+    }
 
 
 }
