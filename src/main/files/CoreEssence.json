@@ -1,0 +1,10 @@
+{
+  "BLMod:CoreEssence": {
+    "NAME": "Core Essence",
+    "FLAVOR": "Holy sht this is flavor!",
+    "DESCRIPTIONS": [
+      "Defeat enemies and absorb Blood to awaken Core Essence. Current essence :",
+      "The Blood Core is alive! At the start of battle gain,:"
+    ]
+  }
+}
