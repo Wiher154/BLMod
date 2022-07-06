@@ -1,9 +1,9 @@
 {
   "BLMod:CoreEssence": {
     "NAME": "Core Essence",
-    "FLAVOR": "Holy sht this is flavor!",
+    "FLAVOR": "For the blood we seek for the essence to consume we leak...",
     "DESCRIPTIONS": [
-      "Defeat enemies and absorb Blood to awaken Core Essence. Current essence :",
+      "Defeat enemies and absorb Blood to awaken Core Essence.",
       "The Blood Core is alive! At the start of battle gain,:"
     ]
   }

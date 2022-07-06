@@ -29,8 +29,8 @@ public class MadEye extends CustomCard {
 
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(m, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new FrailPower(m, this.magicNumber, false), this.magicNumber));
 
     }
 

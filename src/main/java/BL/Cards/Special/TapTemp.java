@@ -23,7 +23,7 @@ public class TapTemp extends CustomCard {
 
 
     public TapTemp() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, BLCardEnum.BL, CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
         this.exhaust = true;
     }

@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class BloodOathPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:BloodOathPow";
     public static final String NAME = "Blood Oath";
-    public static final String DESCRIPTION = "U MADE AN OATH";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String DESCRIPTION = "Draw a card and lose life at start of your turn";
+    public static final String IMG_PATH = "img/powers/Blood oath pow.png";
 
     public BloodOathPow(AbstractCreature owner, int amount) {
         this.name = NAME;

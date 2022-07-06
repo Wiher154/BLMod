@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 public class SanguineFormPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:SanguineFormPow";
     public static final String NAME = "Sanguine Form";
-    public static final String DESCRIPTION = "Blood gives you strength!";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String DESCRIPTION = "When you gain Blood get that much Strength";
+    public static final String IMG_PATH = "img/powers/Sanguine form pow.png";
 
     public SanguineFormPow(AbstractCreature owner, int amount) {
         this.name = NAME;

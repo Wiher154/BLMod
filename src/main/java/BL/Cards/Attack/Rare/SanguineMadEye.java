@@ -58,8 +58,8 @@ public class SanguineMadEye extends BLBloodcostCard {
 
     public void triggerOnManualDiscard(){
         AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new FrailPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new FrailPower(mon, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(mon, AbstractDungeon.player, new VulnerablePower(mon, this.magicNumber, false), this.magicNumber));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Blood(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }
 }

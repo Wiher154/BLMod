@@ -35,8 +35,8 @@ public class RedMadEye extends BLBloodcostCard {
 
     }
     public void useEffect(AbstractPlayer p, AbstractMonster m){
-        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(m, p, new FrailPower(p, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new FrailPower(m, this.magicNumber, false), this.magicNumber));
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
 
     }
@@ -58,8 +58,8 @@ public class RedMadEye extends BLBloodcostCard {
     public void triggerOnManualDiscard() {
         AbstractCreature mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
         if(mon != null) {
-            this.addToBot(new ApplyPowerAction( mon, AbstractDungeon.player, new WeakPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
-            this.addToBot(new ApplyPowerAction( mon, AbstractDungeon.player, new FrailPower(AbstractDungeon.player, this.magicNumber, false), this.magicNumber));
+            this.addToBot(new ApplyPowerAction( mon, AbstractDungeon.player, new WeakPower(mon, this.magicNumber, false), this.magicNumber));
+            this.addToBot(new ApplyPowerAction( mon, AbstractDungeon.player, new FrailPower(mon, this.magicNumber, false), this.magicNumber));
         }
 
     }

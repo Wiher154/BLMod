@@ -11,7 +11,7 @@ public class PainfulMemoriesPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:PainfulMemoriesPow";
     public static final String NAME = "Painful Memories";
     public static final String DESCRIPTION = "Try not to remember too much...";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String IMG_PATH = "img/powers/Painful memories pow.png";
 
     public PainfulMemoriesPow(AbstractCreature owner, int amount) {
         this.name = NAME;

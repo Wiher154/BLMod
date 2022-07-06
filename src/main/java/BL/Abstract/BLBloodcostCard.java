@@ -2,6 +2,7 @@ package BL.Abstract;
 
 import BL.Powers.Blood;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,10 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class BLBloodcostCard extends CustomCard {
+    protected static final Color RED_BORDER_GLOW_COLOR = Color.RED.cpy();
     private int blood_cost;
     private boolean isCostAllBlood;
     private boolean isCostFixed;
     private int bloodSpend;
+
 
     public BLBloodcostCard(String id, String name, String img, int cost, int bloodcost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target){
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -23,6 +26,7 @@ public abstract class BLBloodcostCard extends CustomCard {
             this.blood_cost = 0;
         this.bloodSpend = 0;
         this.isCostFixed = true;
+
     }
 
     public void SetBloodcostToAll() {
@@ -81,12 +85,14 @@ public abstract class BLBloodcostCard extends CustomCard {
 
     public void triggerOnGlowCheck() {
         boolean glow = true;
+        if(this.isCostAllBlood)
+            glow = false;
         AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
         if(pow != null)
-            if (pow.amount < this.blood_cost || isCostAllBlood)
+            if (pow.amount < this.blood_cost)
                 glow = false;
         if (glow) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.glowColor = RED_BORDER_GLOW_COLOR.cpy();//AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }

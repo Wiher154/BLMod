@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BloodWalkPow extends AbstractPower{
     public static final String POWER_ID = "BLMod:BloodWalkPow";
-    public static final String NAME = "Blood Walk Power";
-    public static final String DESCRIPTION = "You basically walk in blood!";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String NAME = "Blood Walk";
+    public static final String DESCRIPTION = "At end of your turn gain Blood and Block";
+    public static final String IMG_PATH = "img/powers/Blood walk pow.png";
 
     public BloodWalkPow(AbstractCreature owner, int amount) {
         this.name = NAME;
