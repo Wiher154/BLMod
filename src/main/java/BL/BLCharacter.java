@@ -33,18 +33,17 @@ public class BLCharacter extends CustomPlayer {
     public static final int STARTING_HP = 23;
     public static final int MAX_HP = 43;
     public static final int ORB_SLOTS = 0;
-    public static final int STARTING_GOLD = 154;
+    public static final int STARTING_GOLD = 0;
     public static final int HAND_SIZE = 5;
     private static final int ASCENSION_MAX_HP_LOSS = 5;
 
     private int ruinousReveletionDiscardCount;
-    private int essenceAmount;
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
-        this.essenceAmount = 0;
+        this.currentHealth -= 20;
     }
 
     public Color getSlashAttackColor() {
@@ -79,14 +78,16 @@ public class BLCharacter extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {       //CHANGE
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("Burning Blood");
-        UnlockTracker.markRelicAsSeen("Burning Blood");
+        retVal.add("BLMod:CoreEssence");
+        UnlockTracker.markRelicAsSeen("BLMod:CoreEssence");
+        //retVal.add("Burning Blood");
+        //UnlockTracker.markRelicAsSeen("Burning Blood");
         return retVal;
     }
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        /*retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
         retVal.add("BLMod:Fang");
@@ -96,9 +97,9 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Shade");
         retVal.add("BLMod:Transfusion");
-        retVal.add("BLMod:Feast");*/
+        retVal.add("BLMod:Feast");
 
-        retVal.add("BLMod:Stab");
+        /*retVal.add("BLMod:Stab");
         retVal.add("BLMod:Stab");
         retVal.add("BLMod:Stab");
 
@@ -114,7 +115,7 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:BloodRitual");
         retVal.add("BLMod:EvolveRitual");
         retVal.add("BLMod:Fang");
-        retVal.add("BLMod:Fang");
+        retVal.add("BLMod:Fang");*/
 
         return retVal;
     }
@@ -152,7 +153,6 @@ public class BLCharacter extends CustomPlayer {
     public void onVictory() {
         super.onVictory();
         this.ruinousReveletionDiscardCount = 0;
-        this.calculateEssence();
     }
 
     public int getRuinousReveletionDiscardCount(){
@@ -161,19 +161,7 @@ public class BLCharacter extends CustomPlayer {
     public void changeRuinousReveletionDiscardCount(int changeValue){
         this.ruinousReveletionDiscardCount += changeValue;
     }
-    public int getEssenceAmount(){
-        return this.essenceAmount;
-    }
-    private void calculateEssence(){
-        int temp = 3 * AbstractDungeon.getCurrRoom().monsters.monsters.size();
-        AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
-        if(pow != null)
-            temp += pow.amount;
-        if(temp < 0)
-            temp = 0;
-        this.essenceAmount += temp;
 
-    }
 
 
 }

@@ -23,18 +23,21 @@ import BL.Cards.Skill.Rare.SanguinePool;
 import BL.Cards.Skill.Uncommon.*;
 import BL.Cards.Special.ScratchTemp;
 import BL.Cards.Special.TapTemp;
+import BL.Relics.CoreEssence;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @SpireInitializer
-public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber{
+public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditStringsSubscriber{
     public static final Color BL_BLACK_RED = CardHelper.getColor(117.0F, 10.0F, 10.0F);
     public static final Logger logger = LogManager.getLogger(BLMod.class.getName());
     public BLMod(){
@@ -107,12 +110,14 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
     }
 
     public void receiveEditCharacters(){
-        BaseMod.addCharacter((AbstractPlayer) new BLCharacter("Blood lord"), "img/Button.png", "img/portrait.png", BLClassEnum.BloodLord);
+        BaseMod.addCharacter(new BLCharacter("Blood lord"), "img/Button.png", "img/portrait.png", BLClassEnum.BloodLord);
     }
     public void receiveEditRelics() {
-
+        BaseMod.addRelicToCustomPool(new CoreEssence(), BLCardEnum.BL);
     }
-
+    public void receiveEditStrings() {
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "files/CoreEssence.json");
+    }
     public void receivePostInitialize() {
 
         }
