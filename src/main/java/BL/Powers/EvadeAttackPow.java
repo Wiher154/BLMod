@@ -9,7 +9,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class EvadeAttackPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:EvadeAttackPow";
     public static final String NAME = "Bat form";
-    public static final String DESCRIPTION = "You are bat!";
+    public static final String DESCRIPTION = "Evade next attack";
+    public static final String IMG_PATH = "img/powers/Bat form pow.png";
 
     public EvadeAttackPow(AbstractCreature owner, int evadeAmount) {
         this.name = NAME;
@@ -18,7 +19,7 @@ public class EvadeAttackPow extends AbstractPower {
         this.amount = evadeAmount;
         this.type = PowerType.BUFF;
         this.description = DESCRIPTION;
-        this.img = new Texture("img/BalefulJourneyPow.png");
+        this.img = new Texture(IMG_PATH);
 
     }
 

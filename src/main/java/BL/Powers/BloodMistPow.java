@@ -13,8 +13,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BloodMistPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:BloodMistPow";
-    public static final String NAME = "Blood Mist Power";
-    public static final String DESCRIPTION = "BLOOD MIST!";
+    public static final String NAME = "Blood Mist";
+    public static final String DESCRIPTION = "Repeat the first attack each round";
+    public static final String IMG_PATH = "img/powers/Blood mist pow.png";
     private static boolean ready;
 
     public BloodMistPow(AbstractCreature owner, int mistAmount) {
@@ -25,7 +26,7 @@ public class BloodMistPow extends AbstractPower {
         this.type = PowerType.BUFF;
         this.description = DESCRIPTION;
         ready = true;
-        this.img = new Texture("img/BalefulJourneyPow.png");
+        this.img = new Texture(IMG_PATH);
 
     }
 

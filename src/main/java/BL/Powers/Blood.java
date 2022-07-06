@@ -9,7 +9,7 @@ public class Blood extends AbstractPower {
     public static final String POWER_ID = "BLMod:Blood";
     public static final String NAME = "Blood";
     public static final String DESCRIPTION = "Use it for powerful effects!";
-    public static final String IMG_PATH = "img/Blood.png";
+    public static final String IMG_PATH = "img/powers/Blood.png";
 
     public Blood(AbstractCreature owner, int amount) {
         this.name = NAME;

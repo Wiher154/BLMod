@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BalefulJourneyPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:BalefulJourneyPow";
-    public static final String NAME = "Baleful Journey Count";
-    public static final String DESCRIPTION = "You are on a journey";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String NAME = "Baleful Journey";
+    public static final String DESCRIPTION = "You are on a journey...";
+    public static final String IMG_PATH = "img/powers/Baleful journey pow.png";
 
     public BalefulJourneyPow(AbstractCreature owner, int amount) {
         this.name = NAME;

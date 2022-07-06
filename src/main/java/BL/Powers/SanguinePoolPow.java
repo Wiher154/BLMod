@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class SanguinePoolPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:SanguinePoolPow";
     public static final String NAME = "Sanguine Pool";
-    public static final String DESCRIPTION = "U r fcking pool man!";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String DESCRIPTION = "You are invulnerable to attacks";
+    public static final String IMG_PATH = "img/powers/Sanguine pool pow.png";
 
     public SanguinePoolPow(AbstractCreature owner, int amount) {
         this.name = NAME;

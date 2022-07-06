@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 public class ShadowFormPow extends AbstractPower {
     public static final String POWER_ID = "BLMod:ShadowFormPow";
     public static final String NAME = "Shadow Form";
-    public static final String DESCRIPTION = "Embrace the shadows!";
-    public static final String IMG_PATH = "img/BalefulJourneyPow.png";
+    public static final String DESCRIPTION = "When you gain Block get that much Dexterity";
+    public static final String IMG_PATH = "img/powers/Shadow form pow.png";
 
     public ShadowFormPow(AbstractCreature owner, int amount) {
         this.name = NAME;

@@ -13,6 +13,7 @@ public class MadnessFormPow extends AbstractPower{
     public static final String POWER_ID = "BLMod:MadnessFormPow";
     public static final String NAME = "Madness Form";
     public static final String DESCRIPTION = "Your madness progressing....and it's harmful.";
+    public static final String IMG_PATH = "img/powers/Madness form pow.png";
 
     public MadnessFormPow(AbstractCreature owner, int madnessAmount) {
         this.name = NAME;
@@ -21,7 +22,7 @@ public class MadnessFormPow extends AbstractPower{
         this.amount = madnessAmount;
         this.type = AbstractPower.PowerType.BUFF;
         this.description = DESCRIPTION;
-        this.img = new Texture("img/BalefulJourneyPow.png");
+        this.img = new Texture(IMG_PATH);
 
 
     }

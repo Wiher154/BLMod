@@ -3,8 +3,6 @@ package BL;
 
 import BL.Cards.Attack.Common.Fang;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.AbstractAnimation;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -12,10 +10,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -28,8 +24,9 @@ public class BLCharacter extends CustomPlayer {
     public static final String SHOULDER_2 = "img/shoulder2.png";
     public static final String CORPSE = "img/corpse.png";
     public static final String CHAR_IMAGE = "img/char_bl.png";
-    public static final String NAME = "Test Blood Lord";
-    public static final String DESCRIPTION = "Here comes description";
+    public static final String NAME = "Blood Lord";
+    public static final String DESCRIPTION = "How did you end up here... You don't remember. You feel... weak? This feeling is new for you. You feel hunger, the urge to consume" +
+            "the very essence of life... You must become stronger, you must remember who you were... and the road only leads forward...";
     public static final int STARTING_HP = 23;
     public static final int MAX_HP = 43;
     public static final int ORB_SLOTS = 0;
@@ -43,7 +40,6 @@ public class BLCharacter extends CustomPlayer {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
-        this.currentHealth -= 20;
     }
 
     public Color getSlashAttackColor() {
@@ -80,8 +76,6 @@ public class BLCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("BLMod:CoreEssence");
         UnlockTracker.markRelicAsSeen("BLMod:CoreEssence");
-        //retVal.add("Burning Blood");
-        //UnlockTracker.markRelicAsSeen("Burning Blood");
         return retVal;
     }
 
