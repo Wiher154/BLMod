@@ -1,8 +1,10 @@
 package BL.Powers;
 
+import BL.BLCharacter;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class Blood extends AbstractPower {
@@ -19,10 +21,12 @@ public class Blood extends AbstractPower {
         this.type = PowerType.BUFF;
         this.description = DESCRIPTION;
         this.img = new Texture(IMG_PATH);
+        ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(amount);
     }
 
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
+        ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(stackAmount);
         if (this.amount <= 0)
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }

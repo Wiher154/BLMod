@@ -84,17 +84,17 @@ public abstract class BLBloodcostCard extends CustomCard {
     }
 
     public void triggerOnGlowCheck() {
-        boolean glow = true;
-        if(this.isCostAllBlood)
-            glow = false;
+        boolean glow = false;
+
         AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
         if(pow != null)
-            if (pow.amount < this.blood_cost)
-                glow = false;
-        if (glow) {
+            if (pow.amount >= this.blood_cost || !this.isCostFixed)
+                glow = true;
+
+        if (glow)
             this.glowColor = RED_BORDER_GLOW_COLOR.cpy();//AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
+        else
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
+
     }
 }

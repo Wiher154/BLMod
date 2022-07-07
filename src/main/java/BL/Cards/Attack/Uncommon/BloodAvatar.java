@@ -31,7 +31,7 @@ public class BloodAvatar extends BLBloodcostCard {
     public void useEffect(AbstractPlayer p, AbstractMonster m) {
         int totalDamage = this.damage + this.magicNumber*this.BloodSpend();
 
-        this.addToBot(new DamageAllEnemiesAction(p, totalDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
+        this.addToBot(new DamageAllEnemiesAction(p, totalDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override

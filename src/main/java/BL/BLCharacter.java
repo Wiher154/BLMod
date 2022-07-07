@@ -25,8 +25,9 @@ public class BLCharacter extends CustomPlayer {
     public static final String CORPSE = "img/corpse.png";
     public static final String CHAR_IMAGE = "img/char_bl.png";
     public static final String NAME = "Blood Lord";
-    public static final String DESCRIPTION = "How did you end up here... You don't remember. You feel... weak? This feeling is new for you. You feel hunger, the urge to consume" +
-            "the very essence of life... You must become stronger, you must remember who you were... and the road only leads forward...";
+    public static final String DESCRIPTION = "How did you end up here... you don't remember.  You lost your true form and abilities." +
+            "You feel... weak? NL You feel hunger, the urge to consume" +
+            "the very essence of life... and the road only leads forward...";
     public static final int STARTING_HP = 23;
     public static final int MAX_HP = 43;
     public static final int ORB_SLOTS = 0;
@@ -35,11 +36,13 @@ public class BLCharacter extends CustomPlayer {
     private static final int ASCENSION_MAX_HP_LOSS = 5;
 
     private int ruinousReveletionDiscardCount;
+    private int bloodGainedThisBattle;
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
+        this.bloodGainedThisBattle = 0;
     }
 
     public Color getSlashAttackColor() {
@@ -119,7 +122,7 @@ public class BLCharacter extends CustomPlayer {
     }
 
     public String getVampireText(){
-        return  DESCRIPTION;
+        return  "DON'T LET THIS LOWLY CREATURE MAKE FOOL OF YOU!!! REFUSE!!!!!";
     }
     public String getSpireHeartText(){
         return  DESCRIPTION;
@@ -144,8 +147,10 @@ public class BLCharacter extends CustomPlayer {
         return NAME;
     }
 
-    public void onVictory() {
-        super.onVictory();
+    @Override
+    public void preBattlePrep(){
+        super.preBattlePrep();
+        this.bloodGainedThisBattle = 0;
         this.ruinousReveletionDiscardCount = 0;
     }
 
@@ -153,10 +158,18 @@ public class BLCharacter extends CustomPlayer {
         return this.ruinousReveletionDiscardCount;
     }
     public void changeRuinousReveletionDiscardCount(int changeValue){
-        this.ruinousReveletionDiscardCount += changeValue;
+        if(changeValue > 0)
+            this.ruinousReveletionDiscardCount += changeValue;
     }
 
+    public void addBloodGainedThisBattle(int add_amount){
+        if(add_amount > 0)
+            this.bloodGainedThisBattle += add_amount;
+    }
 
+    public int getBloodGainedThisBattle(){
+        return bloodGainedThisBattle;
+    }
 
 }
 

@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class CoreEssence extends CustomRelic {
@@ -25,7 +24,7 @@ public class CoreEssence extends CustomRelic {
     private static final int AWAKEN_ENERGY_AMOUNT = 1;
     private static final int AWAKEN_BLOOD_AMOUNT = 2;
     private static final int AWAKEN_BLOCK_AMOUNT = 8;
-    private static final int ESSENCE_FOR_KILL_AMOUNT = 3;
+    private static final double ESSENCE_FOR_MONSTER_HP_MULTI = 0.1;
     private static final String DES_P1 = "Defeat enemies and absorb Blood to awaken Core Essence. (at least "+ ESSENCE_NEEDED_AMOUNT +")";
     private static final String DES_P2 = "The Core is alive! At the start of battle gain: "+ AWAKEN_ENERGY_AMOUNT +" [E] "+ AWAKEN_BLOOD_AMOUNT +" Blood and "+ AWAKEN_BLOCK_AMOUNT +" Block";
     private boolean awaken;
@@ -59,12 +58,12 @@ public class CoreEssence extends CustomRelic {
     public void onMonsterDeath(AbstractMonster m) {
         if(this.counter >= ESSENCE_NEEDED_AMOUNT)
             return;
-        this.counter += ESSENCE_FOR_KILL_AMOUNT;
-        if(AbstractDungeon.getCurrRoom().monsters.areMonstersDead()) {
-            AbstractPower pow = AbstractDungeon.player.getPower("BLMod:Blood");
-            if(pow != null)
-                this.counter += pow.amount;
-        }
+        this.counter += Math.round(m.maxHealth * ESSENCE_FOR_MONSTER_HP_MULTI);
+    }
+    public void onVictory(){
+        super.onVictory();
+        if(this.counter < ESSENCE_NEEDED_AMOUNT)
+            this.counter += ((BLCharacter)AbstractDungeon.player).getBloodGainedThisBattle();
     }
 
     public void updateDescription(AbstractPlayer.PlayerClass c) {
