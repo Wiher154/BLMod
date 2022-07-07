@@ -100,6 +100,7 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
         BaseMod.addCard((AbstractCard)new TapTemp());
         BaseMod.addCard((AbstractCard)new BloodAvatar());
         BaseMod.addCard((AbstractCard)new Stab());
+        BaseMod.addCard((AbstractCard)new Consume());
 
     }
     public void receiveEditKeywords(){

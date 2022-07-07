@@ -19,9 +19,9 @@ public class Jaw extends CustomCard {
     public static final String DESCRIPTION = "Deal !D! NL Heal unblocked amount";
     public static final String IMG_PATH = "img/cards/Jaw.png";
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 7;
-    private static final int UPGRADE_DAMAGE_AMOUNT = 3;
+    private static final int COST = 2;
+    private static final int DAMAGE = 10;
+    private static final int UPGRADE_DAMAGE_AMOUNT = 7;
 
     public Jaw() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, BLCardEnum.BL, CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);

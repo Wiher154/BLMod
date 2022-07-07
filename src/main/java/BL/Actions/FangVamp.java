@@ -22,7 +22,8 @@ public class FangVamp extends AbstractGameAction {
         this.tickDuration();
         if (this.isDone) {
             this.target.damage(this.info);
-            this.addToTop(new HealAction(this.source, this.source, this.healAmount));
+            if (this.target.lastDamageTaken > 0)
+                this.addToTop(new HealAction(this.source, this.source, this.healAmount));
             this.addToTop(new WaitAction(0.05F));
 
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
