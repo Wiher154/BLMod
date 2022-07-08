@@ -37,12 +37,14 @@ public class BLCharacter extends CustomPlayer {
 
     private int ruinousReveletionDiscardCount;
     private int bloodGainedThisBattle;
+    private int madnessTriggerperTurnCount;
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
         initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.ruinousReveletionDiscardCount = 0;
         this.bloodGainedThisBattle = 0;
+        this.madnessTriggerperTurnCount = 0;
     }
 
     public Color getSlashAttackColor() {
@@ -96,23 +98,18 @@ public class BLCharacter extends CustomPlayer {
         retVal.add("BLMod:Transfusion");
         retVal.add("BLMod:Feast");
 
-        /*retVal.add("BLMod:Stab");
-        retVal.add("BLMod:Stab");
-        retVal.add("BLMod:Stab");
+        /*retVal.add("BLMod:Madness");
+        retVal.add("BLMod:Madness");
+        retVal.add("BLMod:Madness");
 
-        retVal.add("BLMod:BloodAvatar");
-        retVal.add("BLMod:BloodAvatar");
-        retVal.add("BLMod:BloodAvatar");
+        retVal.add("BLMod:Jaw");
+        retVal.add("BLMod:Jaw");
 
-        retVal.add("BLMod:VeinFiltering");
-        retVal.add("BLMod:VeinFiltering");
-        retVal.add("BLMod:VeinFiltering");
-        retVal.add("BLMod:Transfusion");
-        retVal.add("BLMod:Transfusion");
+        retVal.add("BLMod:Tap");
+
         retVal.add("BLMod:BloodRitual");
         retVal.add("BLMod:EvolveRitual");
-        retVal.add("BLMod:Fang");
-        retVal.add("BLMod:Fang");*/
+        retVal.add("BLMod:RedRain");*/
 
         return retVal;
     }
@@ -152,6 +149,12 @@ public class BLCharacter extends CustomPlayer {
         super.preBattlePrep();
         this.bloodGainedThisBattle = 0;
         this.ruinousReveletionDiscardCount = 0;
+        this.madnessTriggerperTurnCount = 0;
+    }
+    @Override
+    public void applyStartOfTurnPreDrawCards(){
+        super.applyStartOfTurnPreDrawCards();
+        this.madnessTriggerperTurnCount = 0;
     }
 
     public int getRuinousReveletionDiscardCount(){
@@ -162,13 +165,20 @@ public class BLCharacter extends CustomPlayer {
             this.ruinousReveletionDiscardCount += changeValue;
     }
 
-    public void addBloodGainedThisBattle(int add_amount){
-        if(add_amount > 0)
-            this.bloodGainedThisBattle += add_amount;
+    public void addBloodGainedThisBattle(int addAmount){
+        if(addAmount > 0)
+            this.bloodGainedThisBattle += addAmount;
     }
 
     public int getBloodGainedThisBattle(){
         return bloodGainedThisBattle;
+    }
+    public void addMadnessTriggerperTurnCount(int addAmount){
+        if(addAmount > 0)
+            this.madnessTriggerperTurnCount += addAmount;
+    }
+    public int getMadnessTriggerperTurnCount(){
+        return this.madnessTriggerperTurnCount;
     }
 
 }
