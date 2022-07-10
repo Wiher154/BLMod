@@ -5,10 +5,7 @@ import BL.BLClassEnum;
 import BL.Powers.Blood;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,7 +36,7 @@ public class CoreEssence extends CustomRelic {
     public void atBattleStart() {
         if(isFirstRoom) {
             this.isFirstRoom = false;
-            AbstractDungeon.player.damage(new DamageInfo(AbstractDungeon.player, BLCharacter.MAX_HP - BLCharacter.STARTING_HP));
+            this.addToTop(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player, BLCharacter.MAX_HP - BLCharacter.STARTING_HP));
         }
         if(!this.awaken)
             if(this.counter >= ESSENCE_NEEDED_AMOUNT) {
