@@ -22,6 +22,7 @@ public class Madness extends CustomCard {
     private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 1;
     private static final int MAX_MADNESS_PER_TURN_AMOUNT = 30;
+    private static final int MAX_CARDS_SEEN_ON_SCREEN = 5;
     private int createCardsAmountAtUpgrade;
 
 
@@ -36,15 +37,25 @@ public class Madness extends CustomCard {
         this.addToBot(new DiscardAction(p,p,this.magicNumber, true));
         this.addToBot(new DrawCardAction(p,this.magicNumber));
         if(this.upgraded) {
+            int autoCardCreateAmount = this.createCardsAmountAtUpgrade;
             AbstractCard c = new Madness();
             c.upgrade();
-            this.addToBot(new MakeTempCardInDiscardAction(c, createCardsAmountAtUpgrade));
+            if(this.createCardsAmountAtUpgrade > MAX_CARDS_SEEN_ON_SCREEN)
+                while(autoCardCreateAmount > 0)
+                {
+                    if(autoCardCreateAmount > MAX_CARDS_SEEN_ON_SCREEN)
+                        this.addToBot(new MakeTempCardInDiscardAction(c, MAX_CARDS_SEEN_ON_SCREEN));
+                    else
+                        this.addToBot(new MakeTempCardInDiscardAction(c, autoCardCreateAmount));
+
+                    autoCardCreateAmount -= MAX_CARDS_SEEN_ON_SCREEN;
+                }
         }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return (AbstractCard)new Madness();
+        return new Madness();
     }
 
     @Override
