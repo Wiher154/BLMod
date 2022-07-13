@@ -48,6 +48,7 @@ public class SanguinePool extends BLBloodcostCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.exhaust = false;
+            this.retain = true;
             this.rawDescription = "Bloodcost: 2 NL Lose 20% of current HP (min 1) NL Invulnerable for 1 turn NL Retain";
             this.initializeDescription();
         }
