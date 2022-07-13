@@ -34,7 +34,7 @@ public class CoreEssence extends CustomRelic {
         this.isFirstRoom = true;
     }
     public void atBattleStart() {
-        if(isFirstRoom) {
+        if(isFirstRoom && this.counter <= 0) {
             this.isFirstRoom = false;
             this.addToTop(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player, BLCharacter.MAX_HP - BLCharacter.STARTING_HP));
         }

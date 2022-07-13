@@ -27,6 +27,7 @@ public class RuinousRevelation extends CustomCard {
     private static final int UPGRADE_MAGIC_NUMBER_AMOUNT = 0;
     private static final int DAMAGE_MULTI_ON_MANUAL_CAST = 10;
     private static final int REVELATION_COUNT_INCREASE_ON_DISCARD = 1;
+    private static int reveletionDiscardCount;
 
 
 
@@ -34,6 +35,7 @@ public class RuinousRevelation extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, BLCardEnum.BL, CardRarity.RARE, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC_NUMBER;
+        reveletionDiscardCount = 0;
     }
 
     @Override
@@ -42,9 +44,10 @@ public class RuinousRevelation extends CustomCard {
         if(!this.isInAutoplay)
             this.addToBot(new DiscardAction(p, p, this.magicNumber, false));
 
-        if(AbstractDungeon.player instanceof BLCharacter)
-            if(((BLCharacter) AbstractDungeon.player).getRuinousReveletionDiscardCount() == this.magicNumber)
-                this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage*DAMAGE_MULTI_ON_MANUAL_CAST, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        //if(AbstractDungeon.player instanceof BLCharacter)
+            //if(((BLCharacter) AbstractDungeon.player).getRuinousReveletionDiscardCount() >= this.magicNumber)
+        if(reveletionDiscardCount >= this.magicNumber)
+            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage*DAMAGE_MULTI_ON_MANUAL_CAST, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -62,11 +65,8 @@ public class RuinousRevelation extends CustomCard {
     }
 
     public void triggerOnManualDiscard(){
-        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-
-        if(AbstractDungeon.player instanceof BLCharacter)
-            ((BLCharacter) AbstractDungeon.player).changeRuinousReveletionDiscardCount(REVELATION_COUNT_INCREASE_ON_DISCARD);
-        this.triggerOnGlowCheck();
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        reveletionDiscardCount++;
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
@@ -79,13 +79,9 @@ public class RuinousRevelation extends CustomCard {
     }
 
     public void triggerOnGlowCheck() {
-        boolean glow = true;
-        AbstractPlayer player = AbstractDungeon.player;
-
-        if(player instanceof BLCharacter)
-            if(((BLCharacter) player).getRuinousReveletionDiscardCount() < this.magicNumber)
-                glow = false;
-        else glow = false;
+        boolean glow = false;
+        if(reveletionDiscardCount >= this.magicNumber)
+            glow = true;
 
         if (glow) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
