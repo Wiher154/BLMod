@@ -76,7 +76,8 @@ public class Madness extends CustomCard {
     public void triggerWhenDrawn() {
         if(((BLCharacter) AbstractDungeon.player).getMadnessTriggerperTurnCount() < MAX_MADNESS_PER_TURN_AMOUNT) {
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(this, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true), this.energyOnUse, true, true), true);
-            ((BLCharacter) AbstractDungeon.player).addMadnessTriggerperTurnCount(1);
+            if(AbstractDungeon.player instanceof  BLCharacter)
+                ((BLCharacter) AbstractDungeon.player).addMadnessTriggerperTurnCount(1);
         }
     }
 }

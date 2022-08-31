@@ -59,7 +59,7 @@ public class CoreEssence extends CustomRelic {
     }
     public void onVictory(){
         super.onVictory();
-        if(this.counter < ESSENCE_NEEDED_AMOUNT)
+        if(this.counter < ESSENCE_NEEDED_AMOUNT && AbstractDungeon.player instanceof BLCharacter)
             this.counter += ((BLCharacter)AbstractDungeon.player).getBloodGainedThisBattle();
     }
 
