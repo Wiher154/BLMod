@@ -21,12 +21,14 @@ public class Blood extends AbstractPower {
         this.type = PowerType.BUFF;
         this.description = DESCRIPTION;
         this.img = new Texture(IMG_PATH);
-        ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(amount);
+        if(AbstractDungeon.player instanceof BLCharacter)
+            ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(amount);
     }
 
     public void stackPower(int stackAmount){
         this.amount += stackAmount;
-        ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(stackAmount);
+        if(AbstractDungeon.player instanceof BLCharacter)
+            ((BLCharacter) AbstractDungeon.player).addBloodGainedThisBattle(stackAmount);
         if (this.amount <= 0)
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
