@@ -23,7 +23,8 @@ public class BLCharacter extends CustomPlayer {
     public static final String SHOULDER_1 = "img/shoulder.png";
     public static final String SHOULDER_2 = "img/shoulder2.png";
     public static final String CORPSE = "img/corpse.png";
-    public static final String CHAR_IMAGE = "img/char_bl.png";
+    //public static final String CHAR_IMAGE = "img/char_bl.png";
+
     public static final String NAME = "Blood Lord";
     public static final String DESCRIPTION = "How did you end up here... you don't remember.  You lost your true form and abilities." +
             "You feel... weak? NL You feel hunger, the urge to consume" +
@@ -39,7 +40,7 @@ public class BLCharacter extends CustomPlayer {
 
     public BLCharacter(String name) {
         super(name, BLClassEnum.BloodLord, null, null, null, (String) null);
-        initializeClass(CHAR_IMAGE, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
+        initializeClass(BLMod.CHAR_IMAGE_FINAL, SHOULDER_2, SHOULDER_1, CORPSE, getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
         this.bloodGainedThisBattle = 0;
         this.madnessTriggerperTurnCount = 0;
     }

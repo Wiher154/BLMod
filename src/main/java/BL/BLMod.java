@@ -24,23 +24,46 @@ import BL.Cards.Skill.Uncommon.*;
 import BL.Cards.Special.ScratchTemp;
 import BL.Cards.Special.TapTemp;
 import BL.Relics.CoreEssence;
-import basemod.BaseMod;
+import basemod.*;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import java.util.Properties;
+
 
 @SpireInitializer
 public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditStringsSubscriber{
+
+    public static Properties BLDefaultSettings = new Properties();
+    public static Boolean is_tny_enabled = false;
+    public static final String TNY_CHAR_PROP = "tnny-bl";
+    public static final String CHAR_IMAGE = "img/char_bl.png";
+    public static final String CHAR_IMAGE_TNY = "img/char_bl_tny.png";
+    public static String CHAR_IMAGE_FINAL = CHAR_IMAGE;
+
     public static final Color BL_BLACK_RED = CardHelper.getColor(117.0F, 10.0F, 10.0F);
-    public static final Logger logger = LogManager.getLogger(BLMod.class.getName());
+
+
     public BLMod(){
         BaseMod.subscribe((ISubscriber) this);
-
+        BLDefaultSettings.setProperty(TNY_CHAR_PROP, "FALSE");
+        try {
+            SpireConfig config = new SpireConfig("BLMod", "BLConfig", BLDefaultSettings);
+            config.load();
+            is_tny_enabled = config.getBool(TNY_CHAR_PROP);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        if(is_tny_enabled)
+            CHAR_IMAGE_FINAL = CHAR_IMAGE_TNY;
     }
     public static void initialize(){
         BaseMod.addColor(BLCardEnum.BL, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, BL_BLACK_RED, "img/attack_bl.png", "img/skill_bl.png", "img/power_bl.png", "img/blood_orb.png", "img/attack_bl_p.png", "img/skill_bl_p.png", "img/power_bl_p.png", "img/blood_orb_p.png", "img/orb_ui.png");
@@ -117,12 +140,26 @@ public class BLMod implements PostInitializeSubscriber, EditCardsSubscriber, Edi
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(RelicStrings.class, "files/CoreEssence.json");
     }
+    @Override
     public void receivePostInitialize() {
+        Texture badgeTexture = new Texture("img/bl-badge.png");
+        ModPanel modPanel = new ModPanel();
+        modPanel.addUIElement((IUIElement) new ModLabel("There is not a lot, but still:", 350.0F, 750.0F, Color.GOLD, modPanel, label ->{}));
+        ModLabeledToggleButton mytnybtn =  new ModLabeledToggleButton("Make Blood Lord tnny! (restart game required)", 350.0F, 650.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, is_tny_enabled, modPanel, (label)->{}, (button) ->{
+            is_tny_enabled = button.enabled;
 
+            try{
+                SpireConfig config = new SpireConfig("BLMod", "BLConfig", BLDefaultSettings);
+                config.setBool(TNY_CHAR_PROP, is_tny_enabled);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        modPanel.addUIElement(mytnybtn);
+        BaseMod.registerModBadge(badgeTexture, "BLMod", "Wiher154", "Holy sht dude", modPanel);
         }
-
-
-
-
 
 }
